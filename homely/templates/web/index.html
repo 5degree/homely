@@ -1,0 +1,277 @@
+{% extends "web/base.html"%}
+{% block container %}
+<section class="subheader simple-search">
+  <div class="container">
+    <h1>BE A PART OF NEW WAVE OF REAL ESTATE
+</h1>
+    <!-- <p>INSTITUATION QUALITY LEVEL DEALS AT YOUR FINGERTIPS</p> -->
+    <p>INSTITUTION LEVEL QUALITY DEALS</p>
+<!-- <div class="text-center"><button class="btn btn-primary">GET START</button></div> -->
+    
+
+  </div><!-- end container -->
+</section>
+
+
+
+<section class="module no-padding properties featured">
+
+  <div class="container">
+    <div class="module-header">
+      <h2>EXPLORE OPPORTUNITIES<strong>  BEYOND TRADITIONAL INVESTMENTS</strong></h2>
+      <img src="/static/images/divider.png" alt="" />
+      <p>Diversify with thoroughly vetted commercial real estate, potentially generating income and appreciating assets.</p>
+    </div>
+ 
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <div class="service-item shadow-hover">
+        <i class="fa fa-home"></i>
+        <h4>ACCESS</h4>
+        <h5 class="tag-5">ROPERTIES/OFFERINGS.</h5>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <div class="service-item shadow-hover">
+        <i class="fa fa-group"></i>
+        <h4>INVEST</h4>
+        <h5 class="tag-5">IN REAL ESTATE FRACTIONAL OWNERSHIP ASSETS.</h5>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <div class="service-item shadow-hover">
+        <i class="fa fa-file-text"></i>
+        <h4>EARN</h4>
+        <h5 class="tag-5">MONTHLY RENTALS AND CAPITAL APPRECIATION.</h5>
+      </div>
+    </div>
+  </div><!-- end row -->
+</div>
+ 
+</section>
+<section class="module no-padding properties featured">
+
+  <div class="container">
+    
+ 
+  <div class="row">
+    <div class="col-lg-6 ">
+      <div style="padding-top: 150px;">
+     <h1>Invest in pre-leased<br>
+      commercial and warehouse properties
+      </h1><br>
+      <h2 class="tag-2">Earn monthly rents and benefit from capital appreciation</h2><br><br>
+
+      <a class="btn btn-success" href="/property-listing">View Opportunities</a>
+    </div>
+    </div>
+   
+   
+  </div><!-- end row -->
+</div>
+ 
+</section>
+
+<section class="module property-categories">
+  <div class="container">
+
+    <div class="module-header">
+      <h2>A bit about  <strong>Us</strong></h2>
+      <img src="/static/images/divider.png" alt="divider line">
+      <!-- <p  >India's 1st and largest tech-enabled commercial property listing platform</p> -->
+    </div>
+
+
+    <div class="row" style="text-align: center;padding: 40px;">
+
+      <div class="col-md-6 col-6 ">
+          <div class="Who-we-are">
+              <p class="title">$500m</p>
+              <p class="description">Investment Experience</p>
+          </div>
+      </div>
+
+      <div class="col-md-6 col-6 ">
+        <div class="Who-we-are">
+              <p class="title"><span class="rupee-icon">₹</span><span id="">100</span><span>Crs</span></p>
+              <p class="description">Ongoing property deals</p>
+          </div>
+      </div>
+
+     
+
+  </div><!-- end row -->
+
+  </div><!-- end container -->
+</section>
+
+
+
+
+<section class="module properties">
+  <div class="container">
+
+    <div class="module-header">
+      <h2>  <strong>Offerings</strong></h2>
+      <img src="/static/images/divider.png" alt="">
+   
+    </div>
+
+    <div class="row">
+{% for property in properties  %}
+        <div class="col-lg-4 col-md-4">
+          <div class="property shadow-hover">
+            <a href="property-single/{{property.id}}" class="property-img">
+              <div class="img-fade"></div>
+              <div class="property-tag button alt featured">Featured</div>
+              <div class="property-tag button status">{{property.tags}}</div>
+              <div class="property-price">₹{{property.price}}</div>
+              <div class="property-color-bar"></div>
+              {% if property.featured_image %}
+              <img src="{{property.featured_image.url}}" alt="">
+
+              {% else %}
+               <img src="/static/images/property-cat-img4.jpg" alt="">
+              {% endif %}
+            </a>
+            <div class="property-content">
+              <div class="property-title">
+              <h4><a href="#">{{property.name}}</a></h4>
+                <p style="height: 35px;" class="property-address"><i class="fa fa-map-marker icon"></i>{{property.address}}</p>
+              </div>
+              <table class="property-details">
+                <tbody><tr>
+                  <!-- <td><i class="fa fa-bed"></i> {{property.bedrooms}}Beds</td>
+                  <td><i class="fa fa-tint"></i> {{property.bathrooms}} Baths</td> -->
+                  <td><i class="fa fa-expand"></i> {{property.area}} Sq Ft</td>
+                </tr>
+              </tbody></table>
+            </div>
+        
+          </div>
+        </div>
+{% endfor %}
+        
+    </div><!-- end row -->
+
+    <!-- <div class="center"><a href="#" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> View More Properties</a></div>
+ -->
+  </div><!-- end container -->
+</section>
+
+<!-- <section class="module no-padding properties featured" >
+
+  <div class="container">
+    <div class="module-header">
+      <h2>Tenant    <strong>Profile</strong></h2>
+      <p>We focus on properties leased only to marquee multinational tenants.</p>
+    </div>
+ 
+  <div class="row text-center">
+    <div class=" col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+    <div class="col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+    <div class=" col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+    <div class=" col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+    <div class=" col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+    <div class=" col-md-2" style="margin-top: 10px;">
+      <img height="auto" width="107px" src="/static/images/standard_charter.png">
+    </div>
+  </div>
+</div>
+ 
+</section> -->
+
+<!-- <section class="module no-padding properties featured" style="height: 500px;">
+
+  <div class="container">
+    <div class="module-header">
+      <h2>Our Partners / Advisors</h2>
+      <p>We work with some of the most well-known names in the industry.</p>
+    </div>
+ 
+  <div class="row text-center">
+    <div class=" col-md-4">
+      <img height="100px" width="250px" src="/static/images/standard_charter.png">
+      <p><br><b>Accounting & Structuring Advisor</b></p>
+    </div>
+    <div class="col-md-4">
+      <img height="100px" width="250px" src="/static/images/standard_charter.png">
+      <p><br><b>Auditor</b></p>
+    </div>
+    <div class=" col-md-4">
+      <img height="100px" width="250px" src="/static/images/citybank.png">
+       <p><br><b>Bankers</b></p>
+    </div>
+   
+  </div>
+
+  <br><br>
+    <div class="row ">
+
+      <div class="col-md-6" style="text-align: right;"> <a class="btn btn-success text-center" href="/register">Sign Up</a></div>
+      <div class="col-md-6">  <a class="btn btn-success text-center" href="/property-listing">View Opportunities</a></div>
+    </div>
+
+</div>
+</div>
+ 
+</section> -->
+
+<!-- <section class="module testimonials">
+
+  <div class="container">
+    <div class="module-header">
+      <h2>Our <strong>Testimonials</strong></h2>
+      <img src="/static/images/divider-white.png" alt="">
+      <p>Demo sport users come from 20+ countries spread across 5 continents.</p>
+    </div>
+  </div>
+
+  <div class="slider-nav slider-nav-testimonials">
+    <span class="slider-prev slick-arrow" style=""><i class="fa fa-angle-left"></i></span>
+    <span class="slider-next slick-arrow" style=""><i class="fa fa-angle-right"></i></span>
+  </div>
+
+  <div class="container">
+    <div class="slider slider-testimonials slick-initialized slick-slider">
+      <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 4560px; transform: translate3d(-1140px, 0px, 0px);">
+        {% for testimonial in testimonials  %}
+        <div class="testimonial slide slick-slide slick-cloned initialized" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 1140px;">
+        <h3>{{testimonial.comments}}</h3>
+        <div class="testimonial-details">
+          <img class="testimonial-img" src="{{testimonial.image.url}}" alt="">
+          <p class="testimonial-name"><strong>{{testimonial.name}}</strong></p>
+          <span class="testiomnial-title"><em>{{testimonial.designation}}</em></span>
+        </div>
+      </div>
+      {% endfor %}
+    </div></div>
+      
+    </div>
+  </div>
+</section> -->
+
+<section class="Partners-advisors">
+  <div class="container">
+    <div class="module-header">
+      <h2>Our Partners<strong> / Advisors</strong> </h2>
+      <img src="/static/images/divider.png" alt="" />
+      <p>We work with some of the most well-known names in the industry.</p>
+    </div>
+    <div class="row text-center">
+      <img width="300" height="100" src="/static/images/icici-logo.png" alt="ICICI Logo" />
+    </div><!-- end row -->
+  </div><!-- end container -->
+</section>
+
+{% endblock %}

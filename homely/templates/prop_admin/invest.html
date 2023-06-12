@@ -1,0 +1,218 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+					
+					<!-- <div class="card padding-top30 ">
+                        <section class="subheader">
+                            <div class="container">
+                              <h1>Invest</h1>
+                              <div class="breadcrumb right">Home > <a href="#" class="current">Invest</a></div>
+                              <div class="clear"></div>
+                            </div>
+                          </section>
+                          
+                          <section class="module my-properties">
+                            <div class="container">
+                            
+                              <div class="row">
+                               
+                                  <div class="col-lg-9 col-md-9">
+                                      <table class="my-properties-list table">
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Image</th>
+                                          <th>Property</th>
+                                          <th>Price</th>
+                                          <th>Actions</th>
+                                        </tr>
+                                      
+                                    
+                                        {% for property in properties %}
+                                        <tr>
+											<td></td>
+                                          <td class="property-img"><a href="http://127.0.0.1:8000/property-single/{{property.id}}"><img height="50" width="50" src="/static/admin/images/property-img4.jpg" alt="" /></a></td>
+                                          <td class="property-title">
+                                              <a href="http://127.0.0.1:8000/property-single/{{property.id}}">{{property.name}}</a><br/>
+                                              <p class="property-address"><i class="fa fa-map-marker icon"></i>{{property.address}}</p>
+                                             
+                                          </td>
+                                        <td> <p><strong>${{property.price}}</strong></p></td>
+                                          <td class="property-actions">
+                                              <a href="http://127.0.0.1:8000/property-single/{{property.id}}"><i class="fa fa-eye"></i>View</a>
+                                              <a href="http://127.0.0.1:8000/property-single/{{property.id}}"><i class="fa fa-eye"></i>Invest</a>
+                            
+                                              
+                                          </td>
+                                        </tr>
+                                      {% endfor %}
+                                      </table>
+                                      
+                                      
+                                  </div>
+                              </div>
+                          
+                            </div>
+                          </section>
+                        
+					</div> -->
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link text-uppercase active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase" id="status-tab" data-toggle="tab" href="#status" role="tab" aria-controls="status" aria-selected="false">Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase" id="token-tab" data-toggle="tab" href="#token" role="tab" aria-controls="token" aria-selected="false">Token</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History</a>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade active show" id="overview" role="overview" aria-labelledby="overview-tab">
+            <div class="row">
+              <div class="col-md-12">
+								<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> &nbsp;Overview</h6><br>
+              </div>
+            <div class="col-md-3">
+              <label>Token Name</label>
+              <input type="text" class="form-control" placeholder="Token Nmae">
+
+            </div>
+            <div class="col-md-3">
+              <label>Token Symbol</label>
+              <input type="text" class="form-control" placeholder="Token Symbol">
+
+            </div>
+            <div class="col-md-3">
+              <label>Status</label>
+              <input type="text" class="form-control" placeholder="Status">
+
+            </div>
+            <div class="col-md-2">
+              <label>Sort By</label>
+              <input type="text" class="form-control" placeholder="Launch Date Desc"> <i class="fa fa-search" style="float: right;margin-top: -54px;margin-right: -77px;font-size: 37px;"></i>
+
+            </div>
+          </div>
+          <div class="tab-pane fade active show" id="status" role="status" aria-labelledby="status-tab">
+          </div>
+          <div class="tab-pane fade active show" id="token" role="token" aria-labelledby="token-tab">
+          </div>
+          <div class="tab-pane fade active show" id="history" role="history" aria-labelledby="history-tab">
+          </div>
+          </div>
+
+          <div class="tab-pane fade active " id="status" role="status" aria-labelledby="status-tab">
+            <div class="row">
+              <div class="col-md-12">
+								<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> &nbsp;Overview</h6><br>
+              </div>
+            <div class="col-md-3">
+              <label>Token Name</label>
+              <input type="text" class="form-control" placeholder="Token Nmae">
+
+            </div>
+            <div class="col-md-3">
+              <label>Token Symbol</label>
+              <input type="text" class="form-control" placeholder="Token Symbol">
+
+            </div>
+            <div class="col-md-3">
+              <label>Status</label>
+              <input type="text" class="form-control" placeholder="Status">
+
+            </div>
+            <div class="col-md-2">
+              <label>Sort By</label>
+              <input type="text" class="form-control" placeholder="Launch Date Desc"> <i class="fa fa-search" style="float: right;margin-top: -54px;margin-right: -77px;font-size: 37px;"></i>
+
+            </div>
+          </div>
+          <div class="tab-pane fade active show" id="status" role="status" aria-labelledby="status-tab">
+          </div>
+          <div class="tab-pane fade active show" id="token" role="token" aria-labelledby="token-tab">
+          </div>
+          <div class="tab-pane fade active show" id="history" role="history" aria-labelledby="history-tab">
+          </div>
+          </div>
+
+          <div class="tab-pane fade active " id="token" role="token" aria-labelledby="token-tab">
+            <div class="row">
+              <div class="col-md-12">
+								<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> &nbsp;Overview</h6><br>
+              </div>
+            <div class="col-md-3">
+              <label>Token Name</label>
+              <input type="text" class="form-control" placeholder="Token Nmae">
+
+            </div>
+            <div class="col-md-3">
+              <label>Token Symbol</label>
+              <input type="text" class="form-control" placeholder="Token Symbol">
+
+            </div>
+            <div class="col-md-3">
+              <label>Status</label>
+              <input type="text" class="form-control" placeholder="Status">
+
+            </div>
+            <div class="col-md-2">
+              <label>Sort By</label>
+              <input type="text" class="form-control" placeholder="Launch Date Desc"> <i class="fa fa-search" style="float: right;margin-top: -54px;margin-right: -77px;font-size: 37px;"></i>
+
+            </div>
+          </div>
+          <div class="tab-pane fade active show" id="status" role="status" aria-labelledby="status-tab">
+          </div>
+          <div class="tab-pane fade active show" id="token" role="token" aria-labelledby="token-tab">
+          </div>
+          <div class="tab-pane fade active show" id="history" role="history" aria-labelledby="history-tab">
+          </div>
+          </div>
+
+          <div class="tab-pane fade active " id="history" role="history" aria-labelledby="history-tab">
+            <div class="row">
+              <div class="col-md-12">
+								<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> &nbsp;Overview</h6><br>
+              </div>
+            <div class="col-md-3">
+              <label>Token Name</label>
+              <input type="text" class="form-control" placeholder="Token Nmae">
+
+            </div>
+            <div class="col-md-3">
+              <label>Token Symbol</label>
+              <input type="text" class="form-control" placeholder="Token Symbol">
+
+            </div>
+            <div class="col-md-3">
+              <label>Status</label>
+              <input type="text" class="form-control" placeholder="Status">
+
+            </div>
+            <div class="col-md-2">
+              <label>Sort By</label>
+              <input type="text" class="form-control" placeholder="Launch Date Desc"> <i class="fa fa-search" style="float: right;margin-top: -54px;margin-right: -77px;font-size: 37px;"></i>
+
+            </div>
+          </div>
+          <div class="tab-pane fade active show" id="status" role="status" aria-labelledby="status-tab">
+          </div>
+          <div class="tab-pane fade active show" id="token" role="token" aria-labelledby="token-tab">
+          </div>
+          <div class="tab-pane fade active show" id="history" role="history" aria-labelledby="history-tab">
+          </div>
+          </div>
+          
+
+          </div>
+				
+{% endblock %}
+
+

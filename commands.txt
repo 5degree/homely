@@ -1,0 +1,35 @@
+ssh -i homely.pem ubuntu@3.15.33.110
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+
+	sudo apt update
+	sudo apt install mysql-server
+	sudo mysql_secure_installation
+To Connect to the database
+	 sudo mysql -u root -p homely < homely.sql 
+	 pass.- Jai@1261
+
+	 show databases;
+	 create database homely;
+To connect 
+	
+
+sudo mysqlimport -u root -p homely ~/homely_newLatest.sql
+sudo mysql -u root -p homely < homely_newLatest.sql
+	
+	
+CREATE USER 'jal'@'%' IDENTIFIED BY 'ni`12e#Wt';
+
+GRANT ALL PRIVILEGES ON *.* TO 'jal'@'%' WITH GRANT OPTION;
+
+To connect from mysql client to server.
+Host : 3.15.33.110
+username : jal
+password : ni`12e#Wt
+
+for LIVE
+screen -R
+sudo python3 manage.py runserver 0.0.0.0:80
+
+ctr a +d
+

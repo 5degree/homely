@@ -1,0 +1,77 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+					{% include "prop_admin/partials/top_search_navigation.html" %}
+					<div class="card padding-top30 ">
+                        <section class="subheader">
+                            <div class="container">
+                              <h1>My Properties</h1>
+                              <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="#" class="current">My Properties</a></div>
+                              <div class="clear"></div>
+                            </div>
+                          </section>
+                          
+                          <section class="module my-properties">
+                            <div class="container">
+                            
+                              <div class="row">
+                                  <div class="col-lg-3 col-md-3 sidebar-left">
+                                      <div class="widget member-card">
+                                          <div class="member-card-header">
+                                              <a href="#" class="member-card-avatar"><img src="/static/admin/images/agent-img3.j" alt="" /></a>
+                                              <h3>John Doe</h3>
+                                              <p><i class="fa fa-envelope icon"></i>jdoe@gmail.com</p>
+                                          </div>
+                                          <div class="member-card-content">
+                                              <img class="hex" src="/static/admin/images/hexagon.png" alt="" />
+                                              <ul>
+                                                  <li><a href="user-profile.html"><i class="fa fa-user icon"></i>Profile</a></li>
+                                                  <li class="active"><a href="user-my-properties.html"><i class="fa fa-home icon"></i>My Properties</a></li>
+                                                  <li><a href="user-favorite-properties.html"><i class="fa fa-heart icon"></i>Favorited Properties</a></li>
+                                                  <li><a href="http://127.0.0.1:8000/propertyAdmin/property-manager"><i class="fa fa-plus icon"></i>Submit Property</a></li>
+                                                  <li><a href="#"><i class="fa fa-reply icon"></i>Logout</a></li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                          
+                                  <div class="col-lg-9 col-md-9">
+                                      <table class="my-properties-list">
+                                        <tr>
+                                          <th>Image</th>
+                                          <th>Property</th>
+                                        <th>Price</th>
+                                          <th>Actions</th>
+                                        </tr>
+                                      
+                                    
+                                        {% for property in properties %}
+                                        <tr>
+                                          <td class="property-img"><a href="http://127.0.0.1:8000/property-single/{{property.id}}"><img height="50" width="50" src="/static/admin/images/property-img4.jpg" alt="" /></a></td>
+                                          <td class="property-title">
+                                              <a href="http://127.0.0.1:8000/property-single/{{property.id}}">{{property.name}}</a><br/>
+                                              <p class="property-address"><i class="fa fa-map-marker icon"></i>{{property.address}}</p>
+                                             
+                                          </td>
+                                        <td> <p><strong>${{property.price}}</strong></p></td>
+                                          <td class="property-actions">
+                                              <a href="http://127.0.0.1:8000/property-single/{{property.id}}"><i class="fa fa-eye icon"></i>View</a>
+                                              <a href="#"><i class="fa fa-pencil icon"></i>Edit</a>
+                                              <a href="#"><i class="fa fa-close icon"></i>Delete</a>
+                                          </td>
+                                        </tr>
+                                      {% endfor %}
+                                      </table>
+                                      
+                                      
+                                  </div><!-- end col -->
+                              </div><!-- end row -->
+                          
+                            </div><!-- end container -->
+                          </section>
+                        
+					</div>
+				
+{% endblock %}
+
+

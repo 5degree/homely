@@ -1,0 +1,128 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                    <h5>KYC COMPANY</h5><br>
+                    <h6><a href="/propertyAdmin/kyc"><i class="fa fa-arrow-left"></i></a></h6>
+					<div class="row">
+                        
+						<div class=" col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5>Company</h5>
+								</div>
+							
+									<div class="card-body">
+										{% if is_kyc == 'blank' %}
+										<form class="form-horizontal form_middle form-control" enctype='multipart/form-data' method="POST">
+											{% if messages %}
+											{% for message in messages %}
+											<div class="alert alert-{% if message.tags %}{{ message.tags }}" {% endif %}>
+											   {{ message }}.
+											  </div>
+											  {% endfor %}
+							
+											{% endif %}
+											{% csrf_token %}
+											<input type="hidden" name="user" value="{{user.id}}">
+
+											{{ form.name.label_tag }}
+											{{ form.name }}
+											{{ form.name.errors}}
+
+											{{ form.company.label_tag }}
+											{{ form.company }}
+											{{ form.company.errors}}
+
+											{{ form.email.label_tag }}
+											{{ form.email }}
+											{{ form.email.errors}}
+
+											{{ form.social_channels.label_tag }}
+											{{ form.social_channels }}
+											{{ form.social_channels.errors}}
+
+											{{ form.hq.label_tag }}
+											{{ form.hq }}
+											{{ form.hq.errors}}
+
+											{{ form.team_size.label_tag }}
+											{{ form.team_size }}
+											{{ form.team_size.errors}}
+
+											{{ form.home_page.label_tag }}
+											{{ form.home_page }}
+											{{ form.home_page.errors}} 
+
+											{{ form.source_of_funds.label_tag }}
+											{{ form.source_of_funds }}
+											{{ form.source_of_funds.errors}}
+
+											{{ form.foundedDate.label_tag }}
+											{{ form.foundedDate }}
+											{{ form.foundedDate.errors}}
+
+											{{ form.city.label_tag }}
+											{{ form.city }}
+											{{ form.city.errors}}
+
+											{{ form.state.label_tag }}
+											{{ form.state }}
+											{{ form.state.errors}}
+
+											{{ form.country.label_tag }}
+											{{ form.country }}
+											{{ form.country.errors}}
+
+											{{ form.accredited_doc.label_tag }}
+											{{ form.accredited_doc }}
+											{{ form.accredited_doc.errors}}
+
+											
+											<button type="submit" class="btn btn-success">Submit</button>
+										</form>
+
+										{% else %}
+
+										<div class="row">
+											<div class="panel-body" style="margin-left: 50%;">
+												<div class="">
+													<div class="icon_wrapper">
+														<i class="fa fa-check-circle btn btn-success" style="font-size: 35px;"></i>
+													</div>
+													<h4 class="info-text" style="margin-left: -117px;">You have already submitted your KYC </h4>
+												
+												
+													
+													
+												</div>
+											</div>
+										</div>
+
+										{% endif %}
+
+									</div>
+									
+							</div>
+						</div>
+						
+					
+					</div>
+					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+					<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+					
+					<script>
+						 $( "#id_foundedDate" ).datepicker({
+							"maxDate":0,
+							 'format':'Y-m-d',
+							 changeMonth: true,
+							 changeYear: true,
+
+						 });
+
+								
+					</script>
+{% endblock %}
+
+

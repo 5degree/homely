@@ -1,0 +1,206 @@
+{% extends "web/base.html"%}
+{% block container %}
+<section class="subheader simple-search">
+  <div class="container">
+    
+{% if request.GET.tags == 'resale' %} <h1>Resale Properties
+</h1>
+{% else %}
+<h1>All Properties
+</h1>
+
+{% endif %}
+  
+<!-- <div class="text-center"><button class="btn btn-primary">GET START</button></div> -->
+    
+
+  </div><!-- end container -->
+</section>
+
+
+
+
+
+<section class="module properties">
+  <div class="container">
+
+        <div class="row">
+            
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group" style="width: 15%;height: 50px;">
+                              
+                                <div class="{% if request.GET.tags != 'resale' %} active {% endif %} " style="height: 50px;">
+                                    
+                                    <a class="filter-content" href="/property-listing">
+                                        <span class="icon-wrapper">
+                                          <img class="property-image" src="https://media1.propertyshare.in/images/new-properties-active.svg">
+                                        </span>
+
+                                        <span class="filter-title">All Properties</span>
+                                    </a>
+                                </div>
+                                
+                            </div> <!-- form group [rows] -->
+                            
+                            <div class="form-group" style="width: 15%;height: 50px;">
+
+                              <div class="{% if request.GET.tags == 'resale' %} active {% endif %} " style="height: 50px;">
+                                    
+                                    <a class="filter-content" href="/property-listing?tags=resale">
+                                        <span class="icon-wrapper">
+                                          <img class="property-image" src="https://media1.propertyshare.in/images/new-properties-active.svg">
+                                        </span>
+
+                                        <span class="filter-title">Resale Properties</span>
+                                    </a>
+                                </div>
+                                
+                            </div> <!-- form group [rows] -->
+                            <div class="form-group" style="width: 15%;">
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">LOCATION</label>
+                                <select id="pref-orderby" class="form-control" name="location">
+                                    <a href="/property-listing?city=all"><option value="">All Cities</option></a>
+                                    <a href="/property-listing?city=bangalore"><option value="Bangalore">Bangalore</option></a>
+                                    <a href="/property-listing?city=mumbai"><option value="Mumbai">Mumbai</option></a>
+                                    <a href="/property-listing?city=hyderabad"><option value="Hyderabad">Hyderabad</option></a>
+                                    <a href="/property-listing?city=pune"> <option value="Pune">Pune</option></a>
+                                </select>                                
+                            </div> <!-- form group [order by] --> 
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">TYPE</label>
+                                <select id="pref-orderby" class="form-control" name="asset_type">
+                                  <a href="/property-listing?type=office"><option value="">Select</option></a>
+                                  <a href="/property-listing?type=office"><option value="Commercial">Office</option></a>
+                                  <a href="/property-listing?type=retail"><option value="Retailer">Retail</option></a>
+                                 
+                                </select>                                
+                            </div> <!-- form group [order by] --> 
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right:0;" for="pref-orderby">SORRT BY</label>
+                                <select id="pref-orderby" class="form-control" name="sort">
+                                  <a href="/property-listing?sort=position"><option value="position">Position</option></a>
+                                  <a href="/property-listing?sort=recent"> <option value="recent">Most Recent</option></a>
+                                  <a href="/property-listing?sort=target"></a><option value="target">Return Target</option></a>
+                                  <a href="/property-listing?sort=yield"><option value="rental">Rental Yield</option></a>
+                                   
+                                </select>                                
+                            </div> <!-- form group [order by] --> 
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+           
+           
+        </div>
+    
+   
+
+    <div class="row">
+{% for property in filter.qs  %}
+
+         <div class="col-lg-4 col-md-4">
+          <div class="property shadow-hover">
+            <a href="/property-single/{{property.id}}" class="property-img">
+              <div class="img-fade"></div>
+              <div class="property-tag button alt featured">Featured</div>
+              <div class="property-tag button status">{{property.tags}}</div>
+              <div class="property-price">₹{{property.price}}</div>
+              <div class="property-color-bar"></div>
+              {% if property.featured_image %}
+              <img src="{{property.featured_image.url}}" alt="">
+
+              {% else %}
+               <img src="/static/images/property-cat-img4.jpg" alt="">
+              {% endif %}
+            </a>
+            <div class="property-content">
+              <div class="property-title">
+              <h4><a href="#">{{property.name}}</a></h4>
+                <p style="height: 35px;" class="property-address"><i class="fa fa-map-marker icon"></i>{{property.address}}</p>
+              </div>
+              <table class="property-details" style="margin-left: 15%;">
+                <tbody>
+                  <tr>
+                  <td>Area</td>
+                  <td> {{property.area}}<span style="font-size: 8px;">SF</span></td>
+                  </tr>
+                  
+                  <tr>
+                  <td>Price psf</td>
+                  <td> <i class="fa fa-inr"></i>{{property.price_psf}}</td>
+                  </tr>
+                  <tr>
+                  <td>Yield</td>
+                  <td> {{property.prop_yield}}%</td>
+                  </tr>
+                  <tr>
+                  <td>Return Target</td>
+                  <td> {{property.return_target}}%</td>
+                  </tr>
+                  <tr>
+                  <td>Funding Status</td>
+                  <td> {{property.funding_status_percent}}%</td>
+                  </tr>
+                
+                
+              </tbody></table>
+              <hr>
+              {% if property.tags == 'New' %}
+              <div class="form-block text-center" >
+               <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">Invest Now</button></a>
+              </div>
+         
+            {% endif %}
+            {% if property.tags == 'FULLY FUNDED' %}
+            <div class="form-block text-center" >
+             <a href="/property-single/{{property.id}}"><button class="button primary"  style="width: 100%;">View Opportunity</button></a>
+            </div>
+        
+          {% endif %}
+          {% if property.tags == 'RESALE' %}
+            <div class="form-block text-center" >
+             <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">View Opportunity</button></a>
+            </div>
+          
+          {% endif %}
+          </div>
+            <!-- <div class="property-footer">
+              <span class="left"><i class="fa fa-calendar-o icon"></i> </span>
+              <span class="right">
+                <a href="#"><i class="fa fa-heart-o icon"></i></a>
+                <a href="#"><i class="fa fa-share-alt"></i></a>
+              </span>
+              <div class="clear"></div>
+            </div> -->
+          </div>
+        </div>
+        {% empty %}
+<li>No results found!</li>
+{% endfor %}
+        
+    </div><!-- end row -->
+
+    <!-- <div class="center"><a href="#" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> View More Properties</a></div>
+ -->
+  </div><!-- end container -->
+</section>
+
+<style>
+  .active{
+    border-bottom: 2px solid #4a77c3;
+  }
+  .property-details tr{
+    margin-bottom: 10px;
+
+  }
+  .button.green{
+    background-color:#00d199;
+  }
+</style>
+
+
+{% endblock %}

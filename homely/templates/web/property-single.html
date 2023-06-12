@@ -1,0 +1,945 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+
+    <section class="subheader">
+      <div class="container">
+        <h1>Property Single</h1>
+        <div class="breadcrumb right">
+          Home <i class="fa fa-angle-right"></i> Properties
+         
+        </div>
+        <div class="clear"></div>
+      </div>
+    </section>
+
+    <section class="module">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-sm-6">
+            <div class="property-single-item property-main">
+              <div class="property-header">
+                <div class="property-title">
+                  <h4>{{property.name}}</h4>
+                  <div class="property-price-single right">
+                    ₹{{property.price}}<span>Per Month</span>
+                  </div>
+                  <p class="property-address">
+                    <i class="fa fa-map-marker icon"></i>{{property.address}}
+                  </p>
+                  <div class="clear"></div>
+                </div>
+                <div class="property-single-tags">
+                  <div class="property-tag button alt featured">Featured</div>
+                  <div class="property-tag button status">{{property.tags}}</div>
+                  <div class="property-type right">
+                    Property Type: <a href="#">{{property.property_type}}</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="property-gallery">
+                <div class="slider-nav slider-nav-property-gallery">
+                  <span class="slider-prev"
+                    ><i class="fa fa-angle-left"></i
+                  ></span>
+                  <span class="slider-next"
+                    ><i class="fa fa-angle-right"></i
+                  ></span>
+                </div>
+                <div class="slide-counter"></div>
+                <div class="slider slider-property-gallery">
+              
+                  {% if property.featured_image %}
+                  <div class="slide">
+                    <img src="{{property.featured_image.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image2 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image2.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image3 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image3.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image4 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image4.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image5 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image5.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image6 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image6.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image7 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image7.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image8 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image8.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image9 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image9.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                  {% if property.featured_image10 %}
+                  <div class="slide">
+                    <img src="{{property.featured_image10.url}}" alt="" />
+                  </div>
+                  {% endif %}
+                 
+                </div>
+                <div class="slider property-gallery-pager">
+                  {% if property.featured_image %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image2 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image2.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image3 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image3.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image4 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image4.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image5 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image5.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image6 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image6.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image7 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image7.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image8 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image8.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image9 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image9.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                  {% if property.featured_image10 %}
+                  <a class="property-gallery-thumb"
+                    ><img src="{{property.featured_image10.url}}" alt=""
+                  /></a>
+                  {% endif %}
+                            
+                 
+               
+                  
+                 
+                </div>
+              </div>
+            </div>
+            <!-- end property title and gallery -->
+            <!-- <div id="slider">
+              <a href="#" class="control_next">></a>
+              <a href="#" class="control_prev"><</a>
+              <ul>
+                <li>SLIDE 1</li>
+                <li style="background: #aaa;">SLIDE 2</li>
+                <li>SLIDE 3</li>
+                <li style="background: #aaa;">SLIDE 4</li>
+              </ul>  
+            </div> -->
+          </div>
+          <!-- end col -->
+
+          <div class="col-lg-5 col-md-6 sidebar sidebar-property-single">
+            <div class="widget widget-sidebar advanced-search">
+            
+              <h4>
+                <span>Targets</span>
+                <img src="static/images/divider-half-white.png" alt="" />
+              </h4>
+              <div class="widget-content box">
+                <span style="float: right;" class="label label-success">{{property.tags}}</span>
+                <div class="text-center">
+                  <b>{{property.min_investment}}</b>
+
+                </div><br>
+                <div class="text-center">
+                 <input type="number" disabled class="form-group" name="min_investment_val" placeholder="₹" value="{{property.min_investment_inr}}">
+
+                </div><br>
+               <div class="row" style="margin-left: 50px;padding-bottom: 50px;">
+                
+                 <div class="col-md-6">               
+                  <b style=" font-size: 18px;">Monthy Rent</b><br>
+                  <span>₹{{property.monthly_rent}}</span>
+                 </div>
+                 <div class="col-md-6">               
+                  <b style=" font-size: 18px;">Ownership</b><br>
+                  <span>{{property.ownership_percent}}%</span>
+                 </div>
+
+        
+               </div>
+               <div class="col-md-12">
+                <div class="progress">
+                  <div class="progress-bar"  aria-valuemax="100" style="width:{{property.funding_status_percent}}%"><span>{{property.funding_status_percent}}% Funded</span>
+                  
+                  </div>
+                </div>
+               </div>
+            
+               
+             {% if property.tags == 'FULLY FUNDED' %}
+              <div class="form-block text-center" >
+               <button   class="button green disabled"  style="width: 80%;pointer-events: auto;cursor: not-allowed;background-color: #65e3c1;">Fully Funded</button>
+              </div>
+          
+           
+             {% elif  property.tags == 'RESALE' %}
+              <div class="form-block text-center" >
+               <button data-toggle="modal" data-target="#{{property.id}}" class="button green disabled"  style="width: 80%;background-color: #65e3c1;">Buy Now</button>
+              </div>
+
+            {% elif  is_call_scheduled|length > 0 %}
+             
+            <div class="form-block text-center" >
+             <a class="button green"  href="/propertyAdmin/user-profile"  style="width: 80%;background-color: #65e3c1;">What's Next</a>
+           </div>
+
+           {% else %}
+
+            <div class="form-block text-center" >
+              <a class="button green"  href="{% url 'property_invest' prop_id=property.id  %}"  style="width: 80%;background-color: #65e3c1;">Invest Now</a>
+            </div>
+
+         
+            {% endif %}
+           
+           
+            
+           
+              </div>
+              
+              <!-- end widget content -->
+            </div>
+
+            <!-- end widget -->
+          </div>
+          <!-- end sidebar -->
+        </div>
+        <!-- end row -->
+      <div class="container widget property-single-item property-description content text-center" >
+
+        <div class="row">
+          <div class=" col-md-3">
+            <div class="service-item ">
+              <i class="fa fa-inr"></i>
+              <h4>ATTRACTIVE PRICE</h4>
+              <p>₹{{property.attractive_price}}</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="service-item ">
+              <i class="fa fa-group"></i>
+              <h4>RENTAL YIELD</h4>
+              <p>{{property.rental_yield}}%</p>
+            </div>
+          </div>
+          <div class=" col-md-3">
+            <div class="service-item ">
+              <i class="fa fa-file-text"></i>
+              <h4>YEARLY ESCALATION</h4>
+              <p>{{property.yearly_escalation}}%</p>
+            </div>
+          </div>
+          <div class=" col-md-3">
+            <div class="service-item ">
+              <i class="fa fa-map-marker"></i>
+              <h4>LOCATION</h4>
+              <p>{{property.location}}</p>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+        
+        
+
+        <div class="widget property-single-item property-description content">
+          <div class="tabs">
+            <ul>
+              <li>
+                <a href="#tabs-1">Overview</a>
+              </li>
+              <li>
+                <a href="#tabs-2">Location</a>
+              </li>
+              <li>
+                <a href="#tabs-3">Property details</a>
+              </li>
+              <li>
+                <a href="#tabs-4">About Builder</a>
+              </li>
+              <li>
+                <a href="#tabs-5">Financial</a>
+              </li>
+              <li>
+                <a href="#tabs-6">Due diligence</a>
+              </li>
+              <li>
+                <a href="#tabs-7">Documents Reports</a>
+              </li>
+              <!-- <li>
+                <a href="#tabs-8">Updates</a>
+              </li> -->
+            </ul>
+            <div id="tabs-1" class="ui-tabs-hide">
+              <h4>Overview</h4>
+            <p>{{property.property_details}}</p>
+            <h4>Highlights</h4>
+            <p>{{property.highlights}}</p>
+            </div>
+            <div id="tabs-2" class="ui-tabs-hide">
+             <div class="row col-md-12">
+              <div id="map2" class="col-md-6" style="position: relative; z-index: 100;">
+               
+               <iframe width='500' height='350' frameborder='0'         scrolling='no' marginheight='0' marginwidth='0'   src='https://maps.google.com/maps?&amp;q={{property.location}}&amp;output=embed'></iframe>
+              </div>
+
+              <div class="col-md-6">
+                <p><b>{{property.location}}</b></p>
+                <p>{{property.location_detail}}</p>
+              </div>
+             </div>
+            </div>
+            <div id="tabs-3" class="ui-tabs-hide">
+             <div class=" col-md-12">
+              
+                 <ul class="additional-details-list">
+                <li>Localty : <span>{{property.localty}}</span></li>
+                <li>Year of built: <span>{{property.year_built}}</span></li>
+                <li>Storeys: <span>{{property.storeys}}</span></li>
+                <li>Parking: <span>{{property.parking}}</span></li>
+                <li>Floor for sale: <span>{{property.floor_for_sale}} ft</span></li>
+                <li>Parking ratio: <span>{{property.parking_ratio}}</span></li>
+                <li>Floor eficiency: <span>{{property.floor_efficiency}}</span></li>
+                <li>fit outs: <span>{{property.fit_outs}}</span></li>
+                <li>Total area: <span>{{property.total_area}}</span></li>
+                <li>Power backup: <span>{{property.power_backup}}</span></li>
+                <li>Area of sale: <span>{{property.area_of_sale}}</span></li>
+                <li>Air conditioning: <span>{{property.air_conditioning}}</span></li>
+              </ul>
+            
+             
+             </div>
+              
+            </div>
+            <div id="tabs-4" class="ui-tabs-hide">
+             <p>{{property.about_builder}}</p>
+            </div>
+            <div id="tabs-5" class="ui-tabs-hide">
+              <h4>Financials:</h4>
+              <p>{{property.financial}}</p>
+              <b>Disclaimer:</b><p>{{property.financial_desclaimer}}</p>
+              <div class="col-md-6">
+                <canvas id="myChart"></canvas>
+              </div>
+              <div class="col-md-6">
+
+                <ul class="" style="min-height: 250px;">
+                  <li>Purchase Price: <span><i class="fa fa-inr"></i>{{property.purchase_price}}</span></li>
+                  <li>Stamp Duty: <span><i class="fa fa-inr"></i>{{property.stamp_duty}}</span></li>
+                  <li>Brokerage: <span><i class="fa fa-inr"></i>{{property.brokerage}}</span></li>
+                  <li>Legal Fee: <span><i class="fa fa-inr"></i>{{property.legal_fees}}</span></li>
+                  <li>Reserves: <span><i class="fa fa-inr"></i>{{property.reserves}}</span></li>
+                
+                  
+                </ul>
+              </div>
+              <div class="col-md-12 row">
+                <div class="col-md-6">
+                  <h4>Fee details:</h4>
+                
+                  <table class="table">
+                    <thead>
+                     
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Acquisition</td>
+                        <td>{{property.acquisition}}</td>
+                        <td>{{property.acquisition_frequency}}</td>
+  
+                      </tr>
+                      <tr>
+                        <td>Asset  Management</td>
+                        <td>{{property.asset_management}}</td>
+                        <td>{{property.asset_management_frequency}}</td>
+  
+                      </tr>
+                    </tbody>
+                  </table>
+                 
+                </div>
+                <div class="col-md-6">
+                  <h4>Return Distribution:</h4>
+                  <canvas id="distributionChart"></canvas>
+                </div>
+               
+              </div>
+              
+              <div class="col-md-12">
+                <h4>Financial Modal:</h4>
+                <table class="table">
+                  <thead>
+                    <tr>
+                    
+                      <th scope="col">#</th>
+                      <th scope="col">Day 0</th>
+                      <th scope="col">Year 1</th>
+                      <th scope="col">Year 2</th>
+                      <th scope="col">Year 3</th>
+                      <th scope="col">Year 4</th>
+                      <th scope="col">Year 5</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for financial_modal in financial_modals %}
+                    <tr>
+                     <td>{{financial_modal.title}}</td>
+                      <td>{{financial_modal.day0}}</td>
+                      <td>{{financial_modal.year1}}</td>
+                      <td>{{financial_modal.year2}}</td>
+                      <td>{{financial_modal.year3}}</td>
+                      <td>{{financial_modal.year4}}</td>
+                      <td>{{financial_modal.year5}}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              
+           
+
+            </div>
+            <div id="tabs-6" class="ui-tabs-hide">
+              <h4>Due diligence:</h4>
+
+              {% for sponsor in sponsors %}
+              <div class="col-md-12">
+               
+               <div class="col-md-2 logo">
+                 {% if sponsor.logo %}
+                <img src="{{sponsor.logo.url}}" style="float: right;">
+                {% endif %}
+               </div>
+               <div class="col-md-10">{{sponsor.title}}<br> <b>{{sponsor.location}}</b></div>
+              </div>
+              
+              <div class="col-md-12">
+                <h4>Overview:</h4>
+               <p>{{sponsor.description}}</p>
+              
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-4"><h4><p>{{sponsor.experience_title}}</h4></span></div>&nbsp;
+                <div class="col-md-2"><span>{{sponsor.experience_tag}}</span></div>
+                <div class="col-md-12">
+                {{sponsor.experience_description}}
+                </div>
+          
+              </div>
+              <div class="col-md-12">
+                <h4>Sponsor Application:</h4>
+                <p>{{sponsor.application_overview}}</p>
+              
+              </div>
+              <div class="col-md-12">
+                <h4>{{sponsor.application_name}}</h4>
+                <p>{{sponsor.application_detail}}</p>
+              
+              </div>
+              <p><a href="{{sponsor.document.url}}" download><i class="fa download icon"></i>Download Report</a></p>
+              {% endfor %}
+
+            </div>
+            <div id="tabs-7" class="ui-tabs-hide">
+             {% for document in documents %}
+             <b><a href="{{document.document.url}}" download ><i class="fa fa-file-o icon"></i> {{document.title}}</a
+                ></b>
+                <br />
+                <p>{{document.description}}</p><br />
+              
+              {% endfor %}
+            </div>
+            <!-- <div id="tabs-8" class="ui-tabs-hide">
+              <h4>{{property.location}}</h4>
+            </div> -->
+          </div>
+
+          <h4>
+            <span>Description</span>
+            <img class="divider-hex" src="/static/images/divider-half.png" alt="" />
+            <div class="divider-fade"></div>
+          </h4>
+          {{property.description}}
+        </div>
+
+        <div class="widget property-single-item property-related">
+          <h4>
+            <span>Related Properties</span>
+            <img class="divider-hex" src="/static/images/divider-half.png" alt="" />
+            <div class="divider-fade"></div>
+          </h4>
+
+          <div class="row">
+            {% for property in related_properties  %}
+            <div class="col-lg-3 col-md-3">
+              <div class="property shadow-hover">
+                <a href="/property-single/{{property.id}}" class="property-img">
+                  <div class="img-fade"></div>
+                  <div class="property-tag button alt featured">Featured</div>
+                  <div class="property-tag button status">{{property.tags}}</div>
+                  <div class="property-price">₹{{property.price}}</div>
+                  <div class="property-color-bar"></div>
+                   {% if property.featured_image %}
+                  <img src="{{property.featured_image.url}}" alt="" />
+                    {% else %}
+                   <img src="/static/images/property-cat-img4.jpg" alt="">
+                  {% endif %}
+                </a>
+                <div class="property-content">
+                  <div class="property-title">
+                    <h4><a href="#">{{property.name}}</a></h4>
+                    <p class="property-address">
+                      <i class="fa fa-map-marker icon"></i>{{property.address}}
+                    </p>
+                  </div>
+                  <table class="property-details" style="margin-left: 15%;">
+                    <tr>
+                      <td>Area</td>
+                      <td> {{property.area}}<span style="font-size: 8px;">SF</span></td>
+                      </tr>
+                      
+                      <tr>
+                      <td>Price psf</td>
+                      <td> <i class="fa fa-inr"></i>{{property.price_psf}}</td>
+                      </tr>
+                      <tr>
+                      <td>Yield</td>
+                      <td> {{property.prop_yield}}%</td>
+                      </tr>
+                      <tr>
+                      <td>Return Target</td>
+                      <td> {{property.return_target}}%</td>
+                      </tr>
+                      <tr>
+                      <td>Funding Status</td>
+                      <td> {{property.funding_status_percent}}%</td>
+                      </tr>
+                  </table>
+                </div>
+                <div class="property-footer">
+                  <span class="left"
+                    ><i class="fa fa-calendar-o icon"></i> </span
+                  >
+                  <span class="right">
+                    <a href="#"><i class="fa fa-heart-o icon"></i></a>
+                    <a href="#"><i class="fa fa-share-alt"></i></a>
+                  </span>
+                  <div class="clear"></div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+
+          </div>
+          <!-- end row -->
+        </div>
+        <!-- end related properties -->
+      </div>
+      <!-- end container -->
+      <div class="modal fade" id="{{property.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document" style="width: 60%;">
+          <div class="modal-content text-center">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h5 class="modal-title" id="exampleModalLabel">Buy Now</h5>
+              
+            </div>
+            <div class="modal-body ">
+              
+              {{property.popup_text|safe}}
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document" style="width: 60%;">
+          <div class="modal-content text-center">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h5 class="modal-title" id="exampleModalLabel">Invest Now</h5>
+              
+            </div>
+            <div class="modal-body ">
+              
+              <form id="regForm" action="/action_page.php">
+                <div style="text-align:center;margin-top:40px;">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <span class="step">Investment</span>
+                    </div>
+                    <div class="col-md-4">
+                      <span class="step">Schedule call</span>
+                    </div>
+                    <div class="col-md-4">
+                      <span class="step">Confirm</span>
+                    </div>
+
+                  </div>
+                 
+                             
+                </div>
+               
+                <!-- One "tab" for each step in the form: -->
+                <div class="tab">Name:
+                  <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+                  <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+                </div>
+                <div class="tab">Contact Info:
+                  <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                  <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+                </div>
+               
+                <div class="tab">Login Info:
+                  <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+                  <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+                </div>
+                <div style="overflow:auto;">
+                  <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                  </div>
+                </div>
+                <!-- Circles which indicates the steps of the form: -->
+               
+              </form>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      // All in Price Doughnut chart integration
+
+      var ctx = document.getElementById('myChart').getContext('2d');
+      
+     
+          var myDoughnutChart = new Chart(ctx, {
+              // The type of chart we want to create
+              type: 'doughnut',
+             
+              // The data for our dataset
+              data: {
+                labels: ['Purchase price', 'Stamp Duty', 'Brokerage', 'Legal Fee', 'Reserves'],
+                  datasets: [{ 
+                      data: [{{property.purchase_price}}, {{property.stamp_duty}}, {{property.brokerage}}, {{property.legal_fees}}, {{property.reserves}}],
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                  }],
+                  
+              },
+
+              // Configuration options go here
+              options: {
+
+                responsive: true,
+                      legend: {
+                        position: 'top',
+                      },
+                      title: {
+                        display: true,
+                        text: 'All in price'
+                      },
+                      animation: {
+                        animateScale: true,
+                        animateRotate: true
+                      }
+              }
+          });
+
+      // Donut chart end
+
+      // distributionChart  chart integration
+
+      var ctx = document.getElementById('distributionChart').getContext('2d');
+          var distributionChart = new Chart(ctx, {
+              // The type of chart we want to create
+              type: 'bar',
+
+              // The data for our dataset
+              data: {
+                labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                  datasets: [{ 
+                      data: [5, 25, 32, 75, 12, 49],
+                      backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                           
+                    ],
+                  }],
+                  
+              },
+
+              // Configuration options go here
+              options: {
+
+                responsive: true,
+                      legend: {
+                        position: 'top',
+                      },
+                      title: {
+                        display: true,
+                        text: ''
+                      },
+                      animation: {
+                        animateScale: true,
+                        animateRotate: true
+                      }
+                
+              }
+          });
+
+      // distributionChart chart end
+
+
+      // let map;
+
+      // function initMap() {
+      //   map = new google.maps.Map(document.getElementById("map"), {
+      //     center: { lat: -34.397, lng: 150.644 },
+      //     zoom: 8,
+      //   });
+      // }
+
+     
+  
+      
+    </script>
+    <script>
+      var currentTab = 0; // Current tab is set to be the first tab (0)
+      showTab(currentTab); // Display the current tab
+      
+      function showTab(n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... and fix the Previous/Next buttons:
+        if (n == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+          document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+          document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        //... and run a function that will display the correct step indicator:
+        fixStepIndicator(n)
+      }
+      
+      function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form...
+        if (currentTab >= x.length) {
+          // ... the form gets submitted:
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+      }
+      
+      function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+          // If a field is empty...
+          if (y[i].value == "") {
+            // add an "invalid" class to the field:
+            y[i].className += " invalid";
+            // and set the current valid status to false
+            valid = false;
+          }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+          someDiv =  document.getElementsByClassName("step")[currentTab];
+          // someDivWithI =  document.getElementsByName("i");
+          // console.log(someDivWithI);
+          // someDivWithI.className += "sa";
+          document.getElementsByClassName("step")[currentTab].className += " finish";
+         
+          someDiv.innerHTML = "<i name='i' class='fa fa-check'></i>" + someDiv.innerHTML;
+        }
+        return valid; // return the valid status
+      }
+      
+      function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+          x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class on the current step:
+        x[n].className += " active";
+      }
+      </script>
+      
+    
+    <style>
+   .property-details tr{
+    margin-bottom: 10px;
+
+  }
+  .service-item .fa{
+    font-size: 35px;
+  }
+
+  #regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+ 
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+  padding: 2px;
+  border-radius: 5px;
+}
+     
+    </style>
+
+
+{% endblock %}

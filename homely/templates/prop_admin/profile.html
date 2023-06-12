@@ -1,0 +1,27 @@
+{% extends "web/base.html" %}
+{% block container %}
+
+{% for tab in tabs %}
+    
+    {% with entity=tab.entity %} 
+    
+    {% ifequal tab.type 'entity' %} 
+    	{{tab.entity}}
+        {% include "web/partials/top_search_navigation.html" %}
+		{% include "web/partials/entity_render.html" %}
+
+		
+
+    {% endifequal %}
+    {% endwith %}
+
+{% endfor %}
+
+
+{% endblock %}
+
+{% block extrajs %}
+			{% include "web/partials/entity_render_js.html" %}
+			{% include "web/partials/entity_render_grid_js.html" %}
+
+{% endblock %}

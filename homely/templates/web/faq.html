@@ -1,0 +1,153 @@
+{% extends "web/base.html"%}
+{% block container %}
+<section class="subheader">
+    <div class="container">
+      <h1>Faqs</h1>
+      
+      <div class="clear"></div>
+    </div>
+  </section>
+  <section>
+    <div class="card" style="width: 80%;margin-left:10% ;margin-bottom:2%;margin-top:2%" >
+   
+
+      <div class="">
+            
+        <!-- <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">General</a></li>
+          <li><a data-toggle="tab" href="#menu1">% Tax Related</a></li>
+          <li><a data-toggle="tab" href="#menu2">NRI Related</a></li>
+        
+        </ul><br><br> -->
+      
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            
+            <div class="container">
+              {% for faq in faqs %}
+                {% if faq.faqtype == 'general' %}
+
+                  <div class="panel-group" id="accordion{{faq.id}}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{faq.id}}" href="#{{faq.id}}">  {{faq.question}}</a>
+                            </h4>
+                        </div>
+                        <div id="{{faq.id}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div class="panel-body">
+                              {{faq.answer|safe}}
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                {% endif %}
+          {% endfor %}
+            </div>
+          
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <div class="container">
+              {% for faq in faqs %}
+                {% if faq.faqtype == 'taxrelated' %}
+
+                  <div class="panel-group" id="accordion{{faq.id}}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{faq.id}}" href="#{{faq.id}}">  {{faq.question}}</a>
+                            </h4>
+                        </div>
+                        <div id="{{faq.id}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div class="panel-body">
+                              {{faq.answer|safe}}
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                {% endif %}
+          {% endfor %}
+            </div>
+          
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            
+            <div class="container">
+              {% for faq in faqs %}
+                {% if faq.faqtype == 'nri' %}
+
+                  <div class="panel-group" id="accordion{{faq.id}}">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{faq.id}}" href="#{{faq.id}}">  {{faq.question}}</a>
+                            </h4>
+                        </div>
+                        <div id="{{faq.id}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                            <div class="panel-body">
+                              {{faq.answer|safe}}
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                {% endif %}
+          {% endfor %}
+            </div>
+          
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      
+         
+    </div>
+
+    <br><br>
+    <div class="row ">
+
+      <div class="col-md-6" style="text-align: right;"> <a class="btn btn-success text-center" href="/register">Sign Up</a></div>
+      <div class="col-md-6">  <a class="btn btn-success text-center" href="/property-listing">View Opportunities</a></div>
+    </div>
+
+</div>
+    
+    <style>
+        .subheader {
+           
+            margin: 20px;
+        }
+    
+      
+       
+    </style>
+    
+
+
+
+</div>
+  </section>
+  <section class="module no-padding properties featured" >
+
+    <div class="container">
+    
+   
+      <div class="row " style="background-color: #212529;">
+        <div class="col-md-6">
+          <img class="" src="/static/images/footer_signup_img.svg" alt="">
+        </div>
+        <div class="col-md-6">
+          <br><br>
+         <h3 style="color:#FFF">Real Estate Investing Simplified</h3> <a class="btn btn-primary text-center"  href="/register">Become an Investor</a>
+        </div>
+        
+  
+      </div>
+  
+  </div>
+   
+  </section>
+
+
+{% endblock %}

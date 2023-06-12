@@ -1,0 +1,122 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+					<h5>KYC INDIVIDUAL</h5><br>
+					
+                    <h6><a href="/propertyAdmin/kyc"><i class="fa fa-arrow-left"></i></a></h6>
+					<div class="row">
+                        
+						<div class=" col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<h5>Individual</h5>
+								</div>
+							
+									<div class="card-body">
+										{% if is_kyc == 'blank' %}
+										<form class="form-horizontal form_middle form-control" enctype='multipart/form-data' method="POST">
+											{% if messages %}
+											{% for message in messages %}
+											<div class="alert alert-{% if message.tags %}{{ message.tags }}" {% endif %}>
+											   {{ message }}.
+											  </div>
+											  {% endfor %}
+											{% endif %}
+
+											{% csrf_token %}
+
+											<input type="hidden" name="user" value="{{user.id}}">
+
+
+											{{ form.first_name.label_tag }}
+											{{ form.first_name }}
+											{{ form.first_name.errors}}
+
+											{{ form.last_name.label_tag }}
+											{{ form.last_name }}
+											{{ form.last_name.errors}}
+
+											{{ form.dob.label_tag }}
+											{{ form.dob }}
+											{{ form.dob.errors}}
+
+											{{ form.id_proof.label_tag }}
+											{{ form.id_proof }}
+											{{ form.id_proof.errors}}
+
+											{{ form.line1.label_tag }}
+											{{ form.line1 }}
+											{{ form.line1.errors}}
+
+											{{ form.line2.label_tag }}
+											{{ form.line2 }}
+											{{ form.line2.errors}}
+
+											{{ form.city.label_tag }}
+											{{ form.city }}
+											{{ form.city.errors}} 
+
+											{{ form.state.label_tag }}
+											{{ form.state }}
+											{{ form.state.errors}}
+
+											{{ form.postal_code.label_tag }}
+											{{ form.postal_code }}
+											{{ form.postal_code.errors}}
+
+											{{ form.country.label_tag }}
+											{{ form.country }}
+											{{ form.country.errors}}
+
+											{{ form.address_proof.label_tag }}
+											{{ form.address_proof }}
+											{{ form.address_proof.errors}}
+
+										
+
+											<button type="submit" class="btn btn-success">Submit</button>
+										</form>
+										{% else %}
+
+										<div class="row">
+											<div class="panel-body" style="margin-left: 50%;">
+												<div class="">
+													<div class="icon_wrapper">
+														<i class="fa fa-check-circle btn btn-success" style="font-size: 35px;"></i>
+													</div>
+													<h4 class="info-text" style="margin-left: -117px;">You have already submitted your KYC </h4>
+												
+													
+												
+													
+												</div>
+											</div>
+										</div>
+
+										{% endif %}
+									</div>
+									
+							</div>
+						</div>
+						
+					
+					</div>
+					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+					<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+					
+					<script>
+						 $( "#id_dob" ).datepicker({
+							 'format':'Y-m-d',
+							 changeMonth: true,
+							 changeYear: true,
+
+						 });
+
+								
+					</script>
+				
+{% endblock %}
+
+

@@ -1,0 +1,334 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                
+					<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> My Earnings</h6>
+					
+					<ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-left: 42.5%;">
+						<li class="nav-item">
+							<a class="nav-link text-uppercase active" id="Current-tab" data-toggle="tab" href="#Current" role="tab" aria-controls="Current" aria-selected="true">Current</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" id="Sold-tab" data-toggle="tab" href="#Sold" role="tab" aria-controls="Sold" aria-selected="false">Sold</a>
+						</li>
+					
+					</ul><br>
+				
+					<div class="tab-content" id="myTabContent">
+
+						<div class="tab-pane fade active show" id="Current" role="tabpanel" aria-labelledby="Current-tab">
+						<div class="row">
+						
+						
+							
+							<div class="col-md-3 finance_distribution">
+								<div class="card table-card">
+									
+									<div class="card-body-big br text-center">
+										<h5>₹{{total_rent}}</h5>
+										<span> Total rent</span>
+									</div>
+		
+								</div>
+							</div>
+							<div class="col-md-3 finance_distribution">
+								<div class="card table-card">
+
+									<div class="card-body-big br text-center">
+										<h5> ₹{{total_other_income}}</h5>
+										<span> Other income</span>
+									</div>
+		
+								</div>
+							</div>
+							<div class="col-md-3 finance_distribution1">
+								<div class="card table-card">
+
+									<div class="card-body-big br text-center">
+										<h5> ₹{{total_capital_appreciation}}</h5>
+										<span> Capital appreciation</span>
+									</div>
+		
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card table-card">
+
+									<div class="card-body-big br text-center"  style="background-color: #4a77c3;color: white;">
+										<h5 style="color: white;">  ₹{{total_earning}}</h5>
+										<span> Total Earnings</span>
+									</div>
+		
+								</div>
+							</div>
+							
+							<div class="col-md-12">
+							<div class="card table-card">
+							<div class="card-header text-center">
+								<h5>Total Rent Distributed</h5>
+							</div>
+							<div class="card-body">
+								<canvas id="rent" width="1200"></canvas>
+
+							</div>
+						
+						
+						</div>
+						
+							</div>
+						<div class="col-xl-12">
+							<div class="card table-card">
+								<div class="card-header text-center">
+									<h5> Total Return Table
+									</h5>
+								</div>
+								<div class="card-body px-0 py-0">
+									<div class="table-responsive">
+										<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+											<table class="table table-hover m-b-0">
+												
+												
+													
+													<tbody>
+													<tr>
+														<th scope="col">Date of<br> Investment</th>
+														<th scope="col" >Property Name</th>
+														<th scope="col">Type</th>
+														<th scope="col">Investment<br> Amount</th>
+														<th scope="col" >Monthly</th>
+														<th scope="col">Cumulative</th>
+														<th scope="col" class="r-return">(A)<br>Return</th>
+														<th scope="col">Current<br> Valuation</th>
+														<th scope="col" >(B)<br>Return</th>
+														<th scope="col" >(A+B)<br>Total Return</th>
+													</tr>
+													{% for myEarning in myEarnings %}
+																											<tr >
+															<td colspan="1">{{myEarning.date_of_investment}}</td>
+															<th colspan="1" class="earning-total" style="padding-right:7px;padding-left:7px;">{{myEarning.property.name}}</th>
+															<td colspan="1">{{myEarning.prop_type}}</td>
+															<td colspan="1"><i class="fa fa-inr"></i> {{myEarning.investment_amount}}</td>
+															<td ><i class="fa fa-inr"></i> {{myEarning.monthly}}</td>
+															<td><i class="fa fa-inr"></i> {{myEarning.cumulative}}</td>
+															<td class="r-return"> {{myEarning.a_return}}%</td>
+															<td><i class="fa fa-inr"></i> {{myEarning.current_valuation}}</td>
+															<td class="c-return"> {{myEarning.b_return}}%</td>
+															<td class="t-return"> {{myEarning.a_b_return}}%</td>
+														</tr>
+														{% endfor %}
+														<tr>
+													
+															<td></td>
+															<td><b>Total / Average </b></td>
+															<td></td>
+															
+															
+															<td><i class="fa fa-inr"></i>{{total_investment}}</td> 
+														
+															<td><i class="fa fa-inr"></i> {{total_monthly}}</td>
+															
+															<td><i class="fa fa-inr"></i> {{total_cumulative}}</td>
+															
+															<td>{{total_a_avrg_return}} %</td>
+															<td><i class="fa fa-inr"></i> {{total_current_valuation}}</td>
+															<td>{{total_b_avrg_return}} %</td>
+															<td>{{total_ab_avrg_return}} %</td>
+	
+														</tr>
+																		</tbody>
+											</table>
+										<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 351px;"></div></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
+						</div>
+
+						<div class="tab-pane fade" id="Sold" role="tabpanel" aria-labelledby="Sold-tab" >
+							<div class="row">
+								
+								<div class="col-md-6">
+									<div class="card table-card">
+										<div class="row-table">
+											<div class="col-sm-6 card-body-big br text-center">
+														<h5>{{myEarningBySolds | length}}</h5>
+														<span> Properties Sold</span>
+													
+												
+											</div>
+											<div class="col-sm-6 card-body-big br text-center">
+												<h5> {{average_irr}}%</h5>
+												<span> Net IRR</span>
+											
+										
+									</div>
+										</div>
+										
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="card table-card">
+										<div class="row-table">
+											<div class="col-sm-6 card-body-big br text-center">
+											<h5>{{return_multiple}}x </h5>
+												<span> Return Multiple</span>
+											
+										
+									</div>
+									<div class="col-sm-6 card-body-big br text-center">
+										<h5>₹{{total_sale_proceeds}}</h5>
+										<span> sale value </span>
+									
+								
+							</div>
+										</div>
+										
+									</div>
+								</div>
+		
+		
+								<div class="col-xl-12">
+									<div class="card table-card">
+										<div class="card-header text-center">
+											<h5> Investment Summary
+											</h5>
+										</div>
+										<div class="card-body px-0 py-0">
+											<div class="table-responsive">
+												<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+													<table class="table table-hover m-b-0">
+														<thead>
+															
+															<tr>
+																
+																<td>Property</td>
+																<td>Type</td>
+																<td>Date of Investment</td>
+																<td>Invested Amount</td>
+																<td>Total Rents Distributed</td>
+																<td>Sale Date</td>
+																<td>sale Proceeds</td>
+																<td>Profit on Sale</td>
+																<td>IRR</td>
+																<td>MolC</td>
+																<td>Total Return</td>
+																
+															</tr>
+														</thead>
+														<tbody>
+															{% for myEarningBySold in myEarningBySolds %}
+															<tr class="text-center" style="border-bottom: 1px solid; border-bottom-color: lightgray;">
+																
+																<td>{{myEarningBySold.property}}</td>
+																<td>{{myEarningBySold.property_type}}</td>
+																<td>{{myEarningBySold.date_of_investment}}</td>
+																<td><i class="fa fa-inr"></i>{{myEarningBySold.invested_amount}}</td>
+																<td><i class="fa fa-inr"></i>{{myEarningBySold.total_rent_distributed}}</td>
+																<td>{{myEarningBySold.sale_date}}</td>
+																<td><i class="fa fa-inr"></i>{{myEarningBySold.sale_proceeds}}</td>
+																<td><i class="fa fa-inr"></i>{{myEarningBySold.profit_on_sale}}</td>
+																<td>{{myEarningBySold.irr}}%</td>
+																<td>{{myEarningBySold.molc}}</td>
+																<td><i class="fa fa-inr"></i>{{myEarningBySold.total_return}}</td>
+
+															</tr>
+															{% endfor %}
+															<tr style="text-align: center;">
+																	<td>-</td>
+																	<td>-</td>
+																	<td>Total/Average</td>
+																	<td><i class="fa fa-inr"></i>{{total_sale_invested_amount}}</td>
+																	<td><i class="fa fa-inr"></i>{{full_rent_distributed}}</td>
+																	<td>-</td>
+																	<td><i class="fa fa-inr"></i>{{total_sale_proceeds}}</td>
+																	<td><i class="fa fa-inr"></i>{{total_profit_on_sale}}</td>
+																	<td>{{average_irr}}%</td>
+																	<td>{{total_molc}}</td>
+																	<td><i class="fa fa-inr">{{sum_of_total_return}}</td>
+																
+																				</tr>
+															
+		
+														</tbody>
+													</table>
+												<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 351px;"></div></div></div>
+											</div>
+										</div>
+									</div>
+								</div>
+		
+							
+							</div>
+						</div>
+						
+					</div>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+					<script>
+						var chart = new Chart(rent, {
+						type: 'bar',
+						data: {
+							labels: ['Jan','Feb','March','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'], // responsible for how many bars are gonna show on the chart
+							// create 12 datasets, since we have 12 items
+							// data[0] = labels[0] (data for first bar - 'Standing costs') | data[1] = labels[1] (data for second bar - 'Running costs')
+							// put 0, if there is no data for the particular bar
+							datasets: [
+								{
+								label: "{{prop_name.0}}",
+								data: [ {{ jan_val.0 }},{{ feb_val.0 }},{{ march_val.0 }},{{ aprl_val.0 }},{{ may_val.0 }},{{ june_val.0 }},{{ july_val.0 }},{{ aug_val.0 }},{{ sept_val.0 }},{{ oct_val.0 }},{{ nov_val.0 }},{{ dec_val.0 }}],
+								backgroundColor: '#78ace0'
+							},  {
+								label: "{{prop_name.1}}",
+								data: [{{ jan_val.1 }},{{ feb_val.1 }},{{ march_val.1 }},{{ aprl_val.1 }},{{ may_val.1 }},{{ june_val.1 }},{{ july_val.1 }},{{ aug_val.1 }},{{ sept_val.1 }},{{ oct_val.1 }},{{ nov_val.1 }},{{ dec_val.1 }}],
+								backgroundColor: '#b82e2e'
+							}, 
+							{
+								label: "{{prop_name.2}}",
+								data: [{{ jan_val.2 }},{{ feb_val.2 }},{{ march_val.2 }},{{ aprl_val.2 }},{{ may_val.2 }},{{ june_val.2 }},{{ july_val.2 }},{{ aug_val.2 }},{{ sept_val.2 }},{{ oct_val.2 }},{{ nov_val.2 }},{{ dec_val.2 }}],
+								backgroundColor: '#b8478e'
+							}, 
+						]
+						},
+						options: {
+							responsive: false,
+							legend: {
+								position: 'right' // place legend on the right side of chart
+							},
+							scales: {
+								xAxes: [{
+									stacked: true // this should be set to make the bars stacked
+								}],
+								yAxes: [{
+									stacked: true // this also..
+								}]
+							}
+						}
+						});
+
+
+
+					</script>
+
+				
+<style>	
+
+.finance_distribution:after {
+    content: "+";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+}
+.finance_distribution1:after {
+    content: "=";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+}
+</style>
+{% endblock %}
+
+

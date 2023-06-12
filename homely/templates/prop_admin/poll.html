@@ -1,0 +1,58 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                
+                    <h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Polls</h6>
+					<div class="row">
+                        
+						<div class="col-xl-12 col-md-6">
+							<div class="col-xl-12">
+								<div class="card table-card">
+									<div class="card-header text-center">
+										<h3 class="wrapper_tilte">Past Polls <span class="polls_count">(0)</span></h3>
+									</div>
+									<div class="card-body px-0 py-0">
+										<div class="row">
+                    
+                    
+                                                                
+											<div class="col-md-12 col-sm-12 poll-list-wrapper">
+												<div class="text-center" style="padding: 25px;">
+													
+						
+													<div class="">
+														<div class="">
+																<div class="img-wrapper">
+																	<img style="margin-top: 10px;" src="/static/images/thumb-blue-up-button.svg">
+																</div>
+						
+																<p class="text-center empty-title">There are no past polls available</p>
+																
+															</div>
+															</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					</div>
+					<style>
+						.img-wrapper{
+						width: 50px;
+						margin: 0 auto;
+						height: 50px;
+						border: 1px solid #4A77C2;
+						border-radius: 50%;
+						margin-bottom: 30px;
+						}
+					</style>
+				
+{% endblock %}
+
+

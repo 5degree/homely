@@ -1,0 +1,261 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader simple-search">
+    <div class="container">
+      <h1>How It Works
+  </h1>
+      
+  
+    </div><!-- end container -->
+  </section>
+   
+  <section class="module property-categories">
+    <div class="container">
+  
+ <div class="row">
+        
+        <div class="col-md-12 text-center">
+          <iframe src="https://player.vimeo.com/video/384557166?autoplay=1" width="640" height="360" controls="0" frameborder="0" allow="autoplay;fullscreen" allowfullscreen=""></iframe>
+        </div>
+     
+      </div><!-- end row -->
+  
+    </div><!-- end container -->
+
+    <div class="container">
+      <div class="page-header">
+     
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-search"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Browse Offerings</h4>
+             
+            </div>
+            <div class="timeline-body">
+              <p>Browse through offerings that our
+                team has shortlisted after conducting rigorous due
+                diligence, market review, rental yields,
+                target returns and legal title.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Invest</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Click on the "Invest Now" button and
+                schedule a call with our representative.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Receive Rent Distributions</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Start receiving rent distributions on your
+                investment straight to your bank account.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-search"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Monitor Portfolio</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Use our data-driven dashboard to monitor portfolio
+                performance including market value of properties,
+                city / micro-market / tenant-wise diversification.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-credit-card"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Sell</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Use the resale platform to sell your asset
+                at any time (no lock-in) or wait
+                for the property to be sold.</p>
+            </div>
+          </div>
+        </li>
+       
+      </ul>
+    </div>
+    <br><br>
+    <div class="row ">
+
+      <div class="col-md-6" style="text-align: right;"> <a class="btn btn-success text-center" href="/register">Get Started</a></div>
+      <div class="col-md-6">  <a class="btn btn-success text-center" href="/property-listing">View Opportunities</a></div>
+    </div>
+
+    
+  </section>
+  <style>
+
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eeeeee;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+
+.timeline > li:after {
+  clear: both;
+}
+
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+
+.timeline > li:after {
+  clear: both;
+}
+
+.timeline > li > .timeline-panel {
+  width: 46%;
+  float: left;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+
+.timeline > li > .timeline-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+
+.timeline > li > .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+
+.timeline > li > .timeline-badge {
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+  text-align: center;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+  background-color: #999999;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+
+.timeline-badge.primary {
+  background-color: #2e6da4 !important;
+}
+
+.timeline-badge.success {
+  background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+  background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+  background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+  background-color: #5bc0de !important;
+}
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+  margin-bottom: 0;
+}
+
+.timeline-body > p + p {
+  margin-top: 5px;
+}
+  </style>
+    
+  
+
+{% endblock %}

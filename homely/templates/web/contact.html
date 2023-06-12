@@ -1,0 +1,133 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader simple-search">
+    <div class="container">
+      <h1>Contact Us
+  </h1>
+      
+  
+    </div><!-- end container -->
+  </section>
+   
+  <section class="module property-categories">
+    <div class="container">
+  
+      <div class="row">
+
+        <div class="col-lg-4 col-sm-6 col-12">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+                      <i class="fa fa-map-marker" style="font-size: 40px;"></i>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="">
+                            <h4 class="title">Where to find us</h4>
+                            <p class="description">
+                              105, VTM Building No. 2, Andheri Kurla Road, Sakinaka, Andheri East,Mumbai-400072 
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+
+        <div class="col-lg-4 col-sm-6 col-12">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                  <i class="fa fa-phone" style="font-size: 40px;"></i>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="">
+                        <h4 class="title">Call us</h4>
+                        <p class="description ">
+                            <a class="" href="tel:+919967981722">+919967981722</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-sm-6 col-12">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                  <i class="fa fa-envelope" style="font-size: 40px;"></i>
+                </div>
+                <div class="col-md-9">
+                    <div class="">
+                        <h4 class="title">Write to us</h4>
+                        <p class="description ">
+                           <a class="" href="mailto:invest@propfrac.com">invest@propfrac.com</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+      
+
+    </div><!-- end container -->
+  </section>
+
+  <section class="module">
+    <div class="container">
+  
+      <div class="row">
+  
+        <div class=" col-md-6">
+  
+          <div class="comment-form">
+            <h4><span>Get In Touch With Us</span> <img src="images/divider-half.png" alt="" /></h4>
+            
+            <form method="post">
+              {% csrf_token %}
+                  {{form.as_p}}
+                  <p>
+                    <button class="button green" type="submit">Submit</button>
+                  </p>
+                 
+              </form>
+          </div>
+  
+          
+  
+        </div>
+  
+        <div class=" col-md-6 ">
+          <iframe width='600' height='550' frameborder='0'         scrolling='no' marginheight='0' marginwidth='0'   src='https://maps.google.com/maps?&amp;q=Mehra+Compound,+A-+503m+Mehra+Estate,,+Magan+Nathuram+Rd,+Safed+Pul,+Saki+Naka,+Mumbai,+Maharashtra&amp;output=embed'></iframe>
+              </div>
+
+          
+         
+        </div>
+  
+      </div><!-- end row -->
+      <div class="divider"></div><br/>
+  
+    </div><!-- end container -->
+  </section>
+  <style>
+
+    .col-md-3{
+      margin-top: 38px;
+    }
+    
+  </style>
+    
+  
+
+{% endblock %}

@@ -1,0 +1,52 @@
+1. Add Individual Client-
+
+{
+  "Client": {
+    "TitleID": 1,
+    "FirstName": "jal",
+    "SurName": "singh2",
+    "DateOfBirth": "15/10/1993",
+    "ClientEmail": "jlsingh38@gmail.com",
+    "PhoneHome": "9694214287",
+    "BusinessPhone": "",
+    "PhoneMobile": "",
+    "ClientReference": "",
+    "AgentID": 478,
+    "MailAddress": {
+      "Line1": "Address Line 1",
+      "Line2": "Address Line 2",
+      "Line3": "Address Line 3",
+      "Town": "Portsoken",
+      "County": "Portsoken",
+      "PostalCode": "E1 7AA",
+      "NumberOfYearStay": 0,
+      "NumberOfMonthStay": 0
+    },
+    "PhysicalAddress": {
+      "Line1": "Address Line 1",
+      "Line2": "Address Line 2",
+      "Line3": "Address Line 3",
+      "Town": "Portsoken",
+      "County": "Portsoken",
+      "PostalCode": "E1 7AA",
+      "NumberOfYearStay": 0,
+      "NumberOfMonthStay": 0
+    },
+    "BankAccountInfo": {
+      "AccountID": 0,
+      "AccountName": "Jal singh",
+      "AccountNo": "12345678",
+      "BankName": "",
+      "Branch": "",
+      "City": "Portsoken",
+      "PostCode": "E1 7AA",
+      "SortCode": "123456",
+      "Street": "",
+      "SubUrb": "",
+      "ClientRefNo": "",
+      "Default": true
+    },
+    "MonthlyIncome": 0,
+    "MonthlyExpense": 0
+  }
+}

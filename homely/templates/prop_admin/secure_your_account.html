@@ -1,0 +1,46 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                 
+                   
+					
+
+					<div class="row ">
+                     
+							<div class="col-md-6">
+								<h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Two-fector authentication</h6>
+								<hr>
+					<p>Increase your account's security by enabling two-fector Authentication (2FA) </p>
+					<br>
+					<br>
+					<h6>Password</h6>
+					<hr>
+					<label>Create a new password for your account</label>
+					
+							 
+							</div>
+							<div class="col-md-6">
+								<h6> Two-fector authentication</h6>
+								<hr>
+					<p>2FA is disabled. To enable 2-fector Authentication. press the button below. </p>
+					<button type="button" class="btn btn-primary text-center" style="width: 100%;"> Turn on 2FA</button>
+					<h6>Change Password</h6>
+								<hr>
+							  <label>Current Password</label>
+							  <input type="text" class="form-control" placeholder="Enter Current Password">
+							  <label>New Password</label>
+							  <input type="text" class="form-control" placeholder="Enter New Password">
+							  <label>New Password Confirmation</label>
+							  <input type="text" class="form-control" placeholder="Enter New Password Confirmation">
+							  <button type="submit" class="btn btn-primary text-center" style="width: 100%;"> Change Password</button>
+							</div>
+						
+					
+					
+					
+					</div>
+				
+{% endblock %}
+
+

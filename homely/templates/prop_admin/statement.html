@@ -1,0 +1,99 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                
+                    <h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Statements</h6>
+					<div class="row">
+                        
+					
+					<div class="col-xl-12">
+						<div class="card table-card">
+							<div class="card-header text-center">
+								<h5> Your Statements
+								</h5>
+							</div>
+							<div class="card-body px-0 py-0">
+								<div class="table-responsive">
+									<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+										<table class="table table-hover m-b-0">
+											
+											
+												
+												<tbody>
+													<tr>
+														<th>Date</th>
+														<th>Description</th>
+														<th>Property</th>
+														<th>Debit</th>
+														<th>Credit</th>
+														<th>Action</th>
+													</tr>
+					
+													<tr >
+														 <!-- <td colspan="1"></td>
+														<th colspan="1" class="earning-total" style="padding-right:7px;padding-left:7px;">Total / Average</th> -->
+														<td colspan="1">{{statement.date}}</td>
+														<td colspan="1"> {{statement.description}}</td>
+														<td > {{statement.property_name}}</td>
+														<td><i class="fa fa-inr"></i> {{statement.debit}}</td>
+														<td class="r-return"> {{statement.credit}}</td>
+														<td>{{statement.action}}</td>
+														
+													</tr>
+												</tbody>
+										</table>
+									<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 400px;"></div></div></div>
+									<a href="{{statement.statement.url}}"><span style="float: right;"><i class="fa fa-download"></i> Download Statement</span></a>
+										
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					<script type="text/javascript">
+						// Load google charts
+						google.charts.load('current', {'packages':['corechart']});
+						google.charts.setOnLoadCallback(drawChart);
+						
+						// Draw the chart and set the chart values
+						function drawChart() {
+						  var data = google.visualization.arrayToDataTable([
+						  ['Task', 'Hours per Day'],
+						  ['Work', 8],
+						  ['Eat', 2],
+						  ['TV', 4],
+						  ['Gym', 2],
+						  ['Sleep', 8]
+						]);
+						
+						  // Optional; add a title and set the width and height of the chart
+						  var options = {'title':'My Average Day', 'width':550, 'height':400};
+						
+						  // Display the chart inside the <div> element with id="piechart"
+						  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+						  chart.draw(data, options);
+						}
+						</script>
+<style>
+
+.finance_distribution:after {
+    content: "+";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+}
+.finance_distribution1:after {
+    content: "=";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+}
+</style>
+{% endblock %}
+
+

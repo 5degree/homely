@@ -1,0 +1,32 @@
+{% extends "prop_admin/base.html"%}
+{% block container %}
+
+
+<div class="col-sm-12">
+    <h5>STO Process Flowchart</h5>
+    <hr>
+    <br>
+    <div>
+        <div class="cd-timeline1 js-cd-timeline">
+            <div class="cd-timeline__container1">
+                <div class="main">
+                    <ul class="cbp_tmtimeline">
+                        {% for flow in flows %}
+                        <li>
+                            <time class="cbp_tmtime" datetime="2020-04-10 18:30"><span>{{flow.date}}</span> <span>{{flow.time|time:'H:i'}}</span></time>
+                            <div class="cbp_tmicon cbp_tmicon-phone"><i class="feather icon-smartphone"></i></div>
+                            <div class="cbp_tmlabel">
+                                <h4 class="text-white">{{flow.name}}</h4>
+                               
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "prop_admin/base.html"%}
+{% block container %}
+
+
+<div class="col-sm-12">
+    <h5><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> 
+       My Documents </h5>
+    <hr>
+    <ul>
+        {% for pros in prospectus %}
+            <li>
+                <span>{{pros.title}}</span><span class="ml-5"><i class="fa fa-check"></i></span><span class="ml-5"><a href="{{pros.document.url}}"><i class="fa fa-download"></i></a></i></span>
+            </li>
+
+
+        {% endfor %}
+   </ul> 
+</div>
+
+{% endblock %}

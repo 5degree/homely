@@ -1,0 +1,49 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader">
+  <div class="container">
+    <h1>Login</h1>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="login" class="current">Login</a></div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section class="module login">
+  <div class="container">
+    <div class="col-lg-4 col-lg-offset-4 login_mid_section" style="padding:35px;"> 
+    
+  
+    <div class="row">
+     
+       
+      
+        <form method="post" class="">
+         {% csrf_token %}
+         {{form.as_p}}
+     
+          <div class="form-block text-center">
+            <button class="button " type="submit">Login</button>
+          </div>
+          <div class="divider"></div>
+          <p class="note"><a href="/password-reset">I don't remember my password.</a> </p>    
+        </form>
+       
+
+      </div>
+     
+      <p>Don't have an account? <strong><a href="register">Register here.</a></strong></p> 
+      <div class="form-block col-md-6">
+        <button class="button button-icon" ><i class="fa fa-angle-right"></i> <a style="color: white;" href="{% url 'social:begin' 'facebook' %}">Facebook</a></button>
+      </div>
+      <div class="form-block col-md-6">
+        <button class="button button-icon" ><i class="fa fa-angle-right"></i>  <a style="color: white;" href="{% url "social:begin" "google-oauth2" %}">Google+</a></button>
+      </div>
+     
+     
+    </div><!-- end row -->
+
+  </div>
+</section>
+
+{% endblock %}

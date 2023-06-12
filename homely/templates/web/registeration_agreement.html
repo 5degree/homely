@@ -1,0 +1,45 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader">
+  <div class="container">
+    <h1>Register</h1>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="register" class="current">Register</a></div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section class="module login">
+  <div class="container">
+
+    <div class="row">
+      
+        <form action="{% url 'Investors-register-get' %}" method="POST">
+          {% csrf_token %}
+            <div class="col-md-9">
+                <label> Country:</label>
+                <input name="country" type="text" required />
+            </div>
+                
+            <div class="col-md-12"> 
+            <input required type="checkbox" id="term1" name="term1" >
+            <label for="term1"> FreeWebTemplates.com and included content (and any derivative works or enhancements of the same) including,  </label><br>
+            <input required type="checkbox" id="term2" name="term2" >
+            <label for="term2"> FreeWebTemplates.com and included content (and any derivative works or enhancements of the same) including,  </label><br>
+            <input required type="checkbox" id="term3" name="term3" >
+            <label for="term3"> FreeWebTemplates.com and included content (and any derivative works or enhancements of the same) including,  </label><br>
+            <input required type="checkbox" id="term3" name="term3" >
+            <label for="term3"> FreeWebTemplates.com and included content (and any derivative works or enhancements of the same) including, </label><br>
+            <div class="form-block  text-center">
+                <button class="button " type="submit">Submit</button>
+              </div>
+        </div>
+          
+        </form>
+      </div>
+    </div><!-- end row -->
+
+  </div>
+</section>
+
+{% endblock %}

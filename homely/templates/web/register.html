@@ -1,0 +1,72 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader">
+  <div class="container">
+    <h1>Register</h1>
+    <div class="breadcrumb right">Home <i class="fa fa-angle-right"></i> <a href="register" class="current">Register</a></div>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<section class="module login">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4 login_mid_section" style="padding:35px;"> 
+      
+        <form method="post" class="">
+          {% csrf_token %}
+          <!-- {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+          {% endfor %} -->
+          <input name="country" type="hidden" id="id_country" value="{{ country }}">
+          {{ form.username.label_tag }}
+          {{ form.username }}
+          {% if form.username.help_text %}
+                <small style="color: grey">{{ form.username.help_text }}</small>
+          {% endif %}<br>
+          <small style="color: red">{{ form.username.errors }}</small>
+          {{ form.email.label_tag }}
+          {{ form.email }}
+          {% if form.email.help_text %}
+                <small style="color: grey">{{ form.email.help_text }}</small>
+          {% endif %}<br>
+          <small style="color: red">{{ form.email.errors }}</small>
+          {{ form.password1.label_tag }}
+          {{ form.password1 }}
+          {% if form.password1.help_text %}
+                <small style="color: grey">{{ form.password1.help_text }}</small>
+          {% endif %}<br>
+          <small style="color: red">{{ form.password1.errors }}</small>
+          {{ form.password2.label_tag }}
+          {{ form.password2 }}
+          {% if form.password2.help_text %}
+                <small style="color: grey">{{ form.password2.help_text }}</small>
+          {% endif %}<br>
+          <small style="color: red">{{ form.password2.errors }}</small>
+         <br>
+          
+          <div class="form-block  text-center">
+            <button class="button " type="submit">Register</button>
+          </div>
+          <div class="divider"></div>
+          <p>Already have an account? <strong><a href="login">Login here.</a></strong></p> 
+          <p class="note">By clicking the "Register" button you agree with our <a href="#">Terms and conditions</a></p>    
+        </form>
+      </div>
+    </div><!-- end row -->
+
+  </div>
+</section>
+
+{% endblock %}

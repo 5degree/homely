@@ -1,0 +1,340 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+<style>
+    @page {
+        size: letter portrait;
+        @frame content_frame {
+            left: 50pt;
+            width: 512pt;
+            top: 50pt;
+            height: 692pt;
+            -pdf-frame-border: 1;    /* for debugging the layout */
+        }
+    }
+</style>
+
+					{% include "prop_admin/partials/top_search_navigation.html" %}
+									
+                
+                    <h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Overview</h6>
+					<div class="row">
+                        
+						<div class="col-md-3 finance_distribution">
+							<div class="card table-card">
+
+								<div class="card-body-big br text-center">
+									<h5> {{investments | length}}</h5>
+									<span> Properties</span>
+								</div>
+	
+							</div>
+						</div>
+						<div class="col-md-3 finance_distribution">
+							<div class="card table-card">
+
+								<div class="card-body-big br text-center">
+									<h5> <i class="fa fa-inr"></i> {{total_investment}}</h5>
+									<span> Total Investment</span>
+								</div>
+	
+							</div>
+						</div>
+						<div class="col-md-3 finance_distribution1">
+							<div class="card table-card">
+
+								<div class="card-body-big br text-center">
+									<h5>  <i class="fa fa-inr"></i> {{current_value}}</h5>
+									<span> Current Value</span>
+								</div>
+	
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card table-card">
+
+								<div class="card-body-big br text-center"  style="background-color: #4a77c3;color: white;">
+									<h5 style="color: white;"><i class="fa fa-inr"></i>  {{total_distributions}}</h5>
+									<span> Total Distributions</span>
+								</div>
+	
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-header text-center">
+									<h5>My Portfolio</h5>
+								</div>
+								<div class="card-body">
+									
+									<canvas id="Portfolio"></canvas>
+								</div>
+								<div class="card-footer text-center">
+									<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+						<div class="card ">
+						<div class="card-header text-center">
+							<h5>Total Rent Distributed</h5>
+							
+						</div>
+						<div class="card-body">
+							<canvas id="Distributed"></canvas>
+						</div>
+						
+
+					  
+					  </div>
+					  
+					    </div>
+					<div class="col-xl-12">
+						<div class="card table-card">
+							<div class="card-header text-center">
+								<h5> Total Return Table
+								</h5>
+							</div>
+							<div class="card-body px-0 py-0">
+								<div class="table-responsive">
+									<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+										<table class="table table-hover m-b-0">
+											
+											
+												
+												<tbody>
+												<tr>
+												
+													<th scope="col" >Property</th>
+													<th scope="col">Investment Amount</th>
+													
+													<th scope="col">Rental Yield</th>
+													<th scope="col">Type</th>
+													<th scope="col" >Current Status</th>
+												
+												</tr>
+												{% for overview in investments %}
+													<tr >
+														
+														
+														<td colspan="1">{{overview.property.name}}</td>
+														<td ><i class="fa fa-inr"></i> {{overview.invesment_amount}}</td>
+														<td> {{overview.rental_yield}} %</td>
+														<td class="r-return"> {{overview.prop_type}}</td>
+														<td>{{overview.current_status}}</td>
+														
+													</tr>
+													{% endfor %}
+													<tr>
+														<td><b>Total / Average </b></td>
+														<td><i class="fa fa-inr"></i> {{total_investment}}</td>
+														<td>{{total_yield}} %</td> 
+														<td></td>
+														<td></td>
+
+													</tr>
+																	</tbody>
+										</table>
+									<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 351px;"></div></div></div>
+								</div>
+							</div>
+						</div>
+					<div class="row">
+
+				
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-header  text-center">
+									<h5>By Location</h5>
+								</div>
+								<div class="card-body">
+									
+									<canvas id="by-location"></canvas>
+								</div>
+								<div class="card-footer text-center">
+									<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-header text-center">
+									<h5>By Investment Type</h5>
+								</div>
+								<div class="card-body">
+									
+									<canvas id="by-investment"></canvas>
+								</div>
+								<div class="card-footer text-center">
+									<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-header  text-center">
+									<h5>By Asset Class</h5>
+								</div>
+								<div class="card-body">
+									
+									<canvas id="by-asset"></canvas>
+								</div>
+								<div class="card-footer text-center">
+									<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					</div>
+					</div>
+					<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+					<script>
+					
+						const portfolio_data = {
+								labels: [
+								{{portfolio_graph|safe}}
+								],
+								datasets: [{
+									label: '',
+									data: [{{portfolio_val|safe}}],
+									backgroundColor: [
+									{{portfolio_color|safe}}
+									],
+									hoverOffset: 4
+								}]
+								};
+								const portfolio_config = {
+									type: 'doughnut',
+									data: portfolio_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('Portfolio'),
+									portfolio_config
+								);
+
+			// Graph for By Location --------------------
+
+						const loc_data = {
+								labels: [
+									{{Location_graph|safe}}
+								],
+								datasets: [{
+									label: '',
+									data: [{{Location_val|safe}}],
+									backgroundColor: [
+										{{location_color|safe}}
+									],
+									hoverOffset: 4
+								}]
+								};
+								const loc_config = {
+									type: 'doughnut',
+									data: loc_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('by-location'),
+									loc_config
+								);
+			// Graph for By Investment  TYPE --------------------
+
+						const investment_data = {
+								labels: [
+									"Direct",
+									"PDOF"
+								],
+								datasets: [{
+									label: '',
+									data: [{{direct_investment_graph}},{{pdof_investment_graph}}],
+									backgroundColor: [
+									'#7aa6c2',
+									'#c1e7ff',
+									],
+									hoverOffset: 4
+								}]
+								};
+								const lnvestment_config = {
+									type: 'doughnut',
+									data: investment_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('by-investment'),
+									lnvestment_config
+								);
+
+	// Graph for By Assset Class --------------------
+
+	const asset_data = {
+								labels: [
+									"Residential",
+									"Office"
+								],
+								datasets: [{
+									label: '',
+									data: [{{asset_residential_graph}},{{asset_office_graph}}],
+									backgroundColor: [
+									'#7aa6c2',
+									'#c1e7ff',
+									],
+									hoverOffset: 4
+								}]
+								};
+								const asset_config = {
+									type: 'doughnut',
+									data: asset_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('by-asset'),
+									asset_config
+								);
+
+// Graph for Disributed------------------
+
+									const dist_data = {
+									labels: ['Jan','Feb','March','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'], // responsible for how many bars are gonna show on the chart
+									datasets: [{
+										label: '',
+										data: {{total_dist_graph}},
+										fill: false,
+										borderColor: 'rgb(75, 192, 192)',
+										tension: 0.1
+									}]
+									};
+									const disributed_config = {
+										type: 'line',
+										data: dist_data,
+										};
+								var myChart = new Chart(
+									document.getElementById('Distributed'),
+									disributed_config
+								);
+
+
+					</script>
+				
+<style>
+
+/* .finance_distribution:after {
+    content: "+";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+}
+.finance_distribution1:after {
+    content: "=";
+    position: absolute;
+    top: 30px;
+    left: 97.5%;
+    font-size: 26px;
+} */
+</style>
+{% endblock %}
+
+

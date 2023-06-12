@@ -1,0 +1,213 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                
+                    <h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Investments</h6><br>
+					<!-- <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-left: 42.5%;">
+						<li class="nav-item">
+							<a class="nav-link text-uppercase active" id="Current-tab" data-toggle="tab" href="#Current" role="tab" aria-controls="Current" aria-selected="true">Current</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-uppercase" id="Sold-tab" data-toggle="tab" href="#Sold" role="tab" aria-controls="Sold" aria-selected="false">Sold</a>
+						</li>
+					
+					</ul><br> -->
+					<div class="tab-content" id="myTabContent">
+
+				<div class="tab-pane fade active show" id="Current" role="tabpanel" aria-labelledby="Current-tab">
+					<div class="row">
+                        
+						<div class="col-md-6">
+							<div class="card table-card">
+								<div class="row-table">
+									<div class="col-sm-6 card-body-big br text-center">
+												<h5>{{investments | length}}</h5>
+												<span> properties invested</span>
+											
+										
+									</div>
+									<div class="col-sm-6 card-body-big br text-center">
+										<h5> {{total_yield}}%</h5>
+										<span> average rental yield</span>
+									
+								
+							</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="card table-card">
+								<div class="row-table">
+									<div class="col-sm-6 card-body-big br text-center">
+										<h5> <i class="fa fa-inr"></i> {{total_investment}}</h5>
+										<span> total investment</span>
+									
+								
+							</div>
+							<div class="col-sm-6 card-body-big br text-center">
+								<h5>  <i class="fa fa-inr"></i> {{total_current_value}}</h5>
+								<span> current value </span>
+							
+						
+					</div>
+								</div>
+								
+							</div>
+						</div>
+
+
+						<div class="col-xl-12">
+							<div class="card table-card">
+								<div class="card-header text-center">
+									<h5> Investment Summary
+									</h5>
+									 <a style="float: right;" href="{{investment.investment_summary.url}}"><span>Download Investment Summary <i class="fa fa-download"></i></span></a>
+								</div>
+								<div class="card-body px-0 py-0">
+									<div class="table-responsive">
+										<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+											<table class="table table-hover m-b-0">
+												<thead>
+													
+													<tr>
+														
+														<td>Date of Investment</td>
+														<td>Property Name</td>
+														
+														<td>Investment Amount</td>
+														<td>Rental Yield</td>
+														<td>Current Monthly Rent</td>
+														<td>Current Value</td>
+														
+														
+													</tr>
+												</thead>
+												<tbody>
+													{% for investment in investments %}
+													<tr  style="border-bottom: 1px solid; border-bottom-color: lightgray;">
+													
+													<td>{{investment.date_of_investment}}</td>
+													<td>{{investment.property.name}}</td>
+													<td><i class="fa fa-inr"></i>{{investment.invesment_amount}}</td>
+													<td>{{investment.rental_yield}} %</td>
+													<td><i class="fa fa-inr"></i>{{investment.current_monthaly_rent}}</td>
+													<td><i class="fa fa-inr"></i>{{investment.current_value}}</td>
+												
+													</tr>
+													{% endfor %}
+													<tr>
+													
+														<td></td>
+														<td><b>Total / Average </b></td>
+														<td><i class="fa fa-inr"></i> {{total_investment}}</td>
+														<td>{{total_yield}} %</td> 
+														<td>-</td>
+														<td><i class="fa fa-inr"></i> {{total_current_value}}</td>
+
+													</tr>
+													
+
+												</tbody>
+											</table>
+										<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 351px;"></div></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+						
+								
+								<div class="card">
+									<div class="card-header text-center">
+										<h5>By Property</h5>
+									</div>
+									<div class="card-body">
+										
+										<canvas id="by-property"></canvas>
+									</div>
+									<div class="card-footer text-center">
+										<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+									</div>
+								</div>
+						
+
+						</div>
+						<div class="col-md-6">
+
+							<div class="card">
+								<div class="card-header text-center">
+									<h5>By Rental Yield</h5>
+								</div>
+								<div class="card-body">
+									
+									<canvas id="by-rental-yield"></canvas>
+								</div>
+								<div class="card-footer text-center">
+									<h3> <i class="fa fa-inr"></i> {{total_investment}}</h3>	
+								</div>
+							</div>
+
+						</div>
+					
+					
+					</div>
+				</div>
+			
+				</div>
+				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+				<script>
+						const property_data = {
+								labels: [
+								{{property_graph|safe}}
+								],
+								datasets: [{
+									label: '',
+									data: [{{property_val|safe}}],
+									backgroundColor: [
+									{{property_color|safe}}
+									],
+									hoverOffset: 4
+								}]
+								};
+								const property_config = {
+									type: 'doughnut',
+									data: property_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('by-property'),
+									property_config
+								);
+
+						const rental_yield_data = {
+								labels: [
+								{{rental_yield_graph|safe}}
+								],
+								datasets: [{
+									label: '',
+									data: [{{rental_yield_val|safe}}],
+									backgroundColor: [
+									{{rental_yield_color|safe}}
+									],
+									hoverOffset: 4
+								}]
+								};
+								const rental_yield_config = {
+									type: 'bar',
+									data: rental_yield_data,
+									options: {}
+								};
+								var myChart = new Chart(
+									document.getElementById('by-rental-yield'),
+									rental_yield_config
+								);
+
+
+				</script>
+				
+{% endblock %}
+
+

@@ -1,0 +1,63 @@
+{% extends "prop_admin/base.html" %}
+{% block container %}
+
+                    {% include "prop_admin/partials/top_search_navigation.html" %}
+                
+                    <h6><a href="/propertyAdmin/"><i class="fa fa-arrow-left"></i></a> Tax</h6>
+					<div class="row">
+                        
+						<div class="col-xl-12 col-md-6">
+							<div class="col-xl-12">
+								<div class="card table-card">
+									<div class="card-header text-center">
+										<h5> Tax Center
+										</h5>
+									</div>
+									<div class="card-body px-0 py-0">
+										<div class="table-responsive">
+											<div class="session-scroll ps ps--active-y" style="height:356px;position:relative;">
+												<table class="table table-hover m-b-0">
+													
+													
+														
+														<tbody>
+															<tr>
+																<th>Tax Financial Date</th>
+																<th>Property</th>
+																<th>Income</th>
+																<th>TDS(%)</th>
+																<th>TDS(<i class="fa fa-inr"></i>)</th>
+																<th>Net Distribution</th>
+																<th>Download TDS</th>
+															
+															</tr>
+															{% for tax in taxes %}
+															<tr >
+																<td>{{tax.financial_year}}</td>
+																<td>{{tax.property.name}}</td>
+																<td colspan="1"><i class="fa fa-inr"></i>{{tax.income}}</td>
+																<td colspan="1"> {{tax.tds_percents}} %</td>
+																<td > {{tax.tds}}</td>
+																<td><i class="fa fa-inr"></i> {{tax.net_distribution}}</td>
+																<td><a href="{{tax.tds_doc.url}}" > <i class="fa fa-download"></i> Download </a> </td>
+															
+																
+															</tr>
+															{% endfor %}
+														</tbody>
+												</table>
+											<div class="ps__rail-x" style="left: 0px; bottom: -4px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 4px; height: 356px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 4px; height: 400px;"></div></div></div>
+										
+												
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					
+					</div>
+				
+{% endblock %}
+
+

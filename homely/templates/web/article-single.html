@@ -1,0 +1,204 @@
+{% extends "web/base.html"%}
+{% block container %}
+
+<section class="subheader ">
+    <div class="container">
+      <h1>Article</h1>
+      
+  
+    </div><!-- end container -->
+  </section>
+   
+  <section class="module property-categories">
+   
+    <div class="container">
+      <div class="page-container">
+          <div class="section-title text-center ">
+            <div class="position-relative d-inline-block">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="panel panel-body col-md-4">
+                        <img class="img-radius img-fluid wid-80 img-circle" width="50" src="{{article.creater_profile_pic.url}}" alt="User image"><br>
+                        <div class="certificated-badge">
+                            <br><i class="fa fa-calendar-o"></i> <b>{{article.created_at}}</b><br>
+                          <h4 class="mb-1 mt-3 text-center"><br><b>By</b><br><br> {{article.created_by}}</h4><br>
+                          <a href="/knowladge-center">Back To Articles</a>
+                        
+                        </div>
+                        </div>
+                    <div class="col-md-4">
+                    </div>
+
+                </div>
+               
+              </div>
+          </div>
+
+          <h3 class="mb-1 mt-3 text-center"> {{article.article_title}}</h3><br>
+          <div class="col-md-12 article-detail">
+
+            {{article.description|safe}}
+
+          </div>
+          <div class="col-md-12 article-social-media">
+
+            <div class="blog-share-icon">
+                <h3>Share this on</h3>
+                <a class="social_share"  href="{{article.fb_link}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a class="social_share" href="{{article.twitter_link}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a class="social_share" href="{{article.linkedin_link}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+            </div>
+
+            <br><br>
+            <div class="row ">
+
+            <div class="col-md-6" style="text-align: right;"> <a class="btn btn-success text-center" href="/register">Sign Up</a></div>
+            <div class="col-md-6">  <a class="btn btn-success text-center" href="/property-listing">View Opportunities</a></div>
+            </div>
+            
+
+          </div>
+         
+      </div>
+  </div>
+
+  </section>
+
+  <section class="module property-categories">
+    <div class="container">
+  
+      <div class="module-header">
+        <h2>Why Knowladge <strong>Center</strong></h2>
+        <img src="images/divider.png" alt="">
+        <p>A proptech platform that provides users with to institutional quality commercial real estate Investment Options</p>
+      </div>
+  
+  
+      <div class="row">
+        {% for re_article in articles %}
+        <div class=" col-md-4">
+          <h6 class="text-center"></h6>
+          <div class="panel user-panel user-panel-1">
+            <div class="panel-header border-0 p-2 pb-0">
+              <div class="cover-img-block">
+                <a href="article/{{re_article.id}}" style="text-decoration: none; color: black;">
+                <img style="min-width: 356px;max-width: 356px;min-height: 200px;max-height: 200px;" src="{{re_article.featured_image.url}}" alt="" class="img-fluid">
+                </a>
+              </div>
+              
+            </div>
+            <div class="panel-body pt-0" style="max-height: 450px;min-height: 450px;">
+             
+              
+              <div class="user-about-block text-center" style="margin-top: -55px;">
+               
+                <div class="row align-items-end">
+                  <div class="col text-left pb-3"><a href="#!"><i class="icon feather icon-star-on text-c-yellow f-20"></i></a></div>
+                  <div class="col">
+                    <div class="position-relative d-inline-block">
+                      <img class="img-radius img-fluid wid-80 img-circle" width="50" src="{{re_article.creater_profile_pic.url}}" alt="User image">
+                      <div class="certificated-badge">
+                        <i class="fa fa-calendar-o"></i> <b>{{re_article.created_at}}</b><br>
+                        <h6 class="mb-1 mt-3 text-center"><b>By</b> {{re_article.created_by}}</h6>
+                      
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="row" >
+                {% if re_article.tag1 %}
+                <div class="col-md-4">
+                  <div class="property-tag button ">
+                   <span style="font-size: 10px;">{{re_article.tag1}}</span> 
+                  </div>
+                </div>
+                {% endif %}
+                {% if re_article.tag2 %}
+                <div class="col-md-4">
+                  <div class="property-tag button ">
+                    <span style="font-size: 10px;">{{re_article.tag2}}</span> 
+                  </div>
+                </div>
+                {% endif %}
+                {% if re_article.tag3 %}
+                <div class="col-md-4">
+                  <div class="property-tag button ">
+                    <span style="font-size: 10px;">{{re_article.tag3}}</span> 
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+              <br>
+              <div class="row" style="margin-top: 5px;" >
+                {% if re_article.tag4 %}
+                <div class="col-md-4">
+                  <div class="property-tag button ">
+                   <span style="font-size: 10px;">{{re_article.tag4}}</span> 
+                  </div>
+                </div>
+                {% endif %}
+                {% if re_article.tag5 %}
+                <div class="col-md-4">
+                  <div class="property-tag button ">
+                    <span style="font-size: 10px;">{{re_article.tag5}}</span> 
+                  </div>
+                </div>
+                {% endif %}
+                
+              </div>
+              <br><br>
+              <div class="">
+                <a href="article/{{re_article.id}}" style="text-decoration: none; color: black;">
+
+                  
+                  <h5 class="mb-3 "  style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical;">{{article.article_title}}</h5>
+                  <div class="mb-1" style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 3;  -webkit-box-orient: vertical;">{{article.description|safe}}</div>
+                </a>
+               
+               
+              </div>
+              <hr class="wid-80 b-wid-3 my-4">
+              <div class="row text-center">
+               
+                <div class="col">
+                  <div class="col-md-6">
+                    <a href="article/{{re_article.id}}" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> Read More</a>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="blog-share-icon">
+                      <p class="title">Share Via</p>
+                      <a class="social_share" href="{{re_article.fb_link}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                      <a class="social_share" href="{{re_article.twitter_link}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                      <a class="social_share" href="{{re_article.linkedin_link}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  </div>
+                  
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div><!-- end row -->
+  
+    </div><!-- end container -->
+  </section>
+  
+<style>
+
+
+    .subheader {
+        background: #787c8a url({{article.featured_image.url}}) no-repeat center;
+        }
+    .fa{
+        font-size: 35px;
+    }
+</style>
+  
+
+{% endblock %}

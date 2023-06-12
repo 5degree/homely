@@ -1,0 +1,191 @@
+<script type="text/javascript">
+ 
+  $(document).ready(function () {  
+    window.onload = function() {
+      // Function for Listing records
+      renderEntity();
+      renderAddRecord();
+     
+    };
+
+      // Rendering Widgets ( Tiles)
+    function renderTiles(data){
+       
+        var tiles = '';
+        $.each(data.results, function(name, details) {
+          tiles += '<div class="col-xl-4 col-md-6"><div class="card"><div class="card-body"><div class="row"><div class="col-auto"><h6>'+details.name+' </h6></div></div><h5>Description</h5><p>'+details.description+'</p><button type="button" class="btn btn-primary edit"  data-toggle="modal" id='+details.id+' data-toggle="modal" data-target="#entityAddModal"> Edit</button><button  id="'+details.id+'" class="btn btn-danger delete">Delete</button></div></div></div>';
+
+        });
+        var entity_add_button = '<div class="card-body"><button type="button" class="btn btn-square btn-primary addmore-{{entity}}" data-toggle="modal" data-target="#entityAddModal"><i class="feather icon-plus"></i>Add</button></div>';
+        // --------------  logic for pagination  ----------------------------
+        var record_count = data.count;
+        var page_count='';
+         var pagination = '';
+        var next_url= limit =offset_next =previous_url  =offset_previous = active_page=null;
+
+        if(data.next != null){
+        next_url = new URL(data.next);
+        limit  = next_url.searchParams.get("limit");
+        offset_next  = next_url.searchParams.get("offset");
+        next_url = '{{entity}}/?limit='+limit+'&offset='+offset_next;
+        }
+        if(data.previous != null){
+        previous_url = new URL(data.previous);
+        limit  = previous_url.searchParams.get("limit");
+        offset_previous  = previous_url.searchParams.get("offset");
+        previous_url = '{{entity}}/?limit='+limit+'&offset='+offset_previous;
+        }
+
+         page_count = Math.ceil(record_count/limit);
+
+         active_page = offset_next/limit;
+         if(active_page==0){
+           active_page = page_count;
+         }
+        
+
+        if(previous_url != null){
+           pagination +='<li class="page-item"><a href="#" class="page-link" url="'+previous_url+'">Previous</a></li>';
+        }
+        for (i = 0; i < page_count; i++) {
+          if(i+1 == active_page){
+            pagination += '<li class="page-item active"><a href="#" class="page-link" limit="'+limit+'" offset="'+(i*limit)+'" url="{{entity}}/?limit='+limit+'&offset='+(i*limit)+'">'+(i+1)+'</a></li>';
+          }else{
+            pagination += '<li class="page-item"><a href="#" class="page-link" limit="'+limit+'" offset="'+(i*limit)+'" url="{{entity}}/?limit='+limit+'&offset='+(i*limit)+'">'+(i+1)+'</a></li>';
+          }
+          
+
+        }
+        if(next_url != null){
+           pagination +='<li class="page-item"><a href="#" class="page-link" url="'+next_url+'">Next</a></li>';
+
+        }
+       // end Logic for pagination 
+        $('#entityAddButton').append(entity_add_button);
+        $('#entityWidgets').append(tiles);
+        $('#Entity-Pagination .pagination').append(pagination);
+
+    }
+      //  Rendring Add record form
+    function renderAddRecordForm(data){
+              var entity_name = data.name.slice(0, data.name.indexOf(" "));
+              var fields = data.actions.POST;  
+              var row='';
+              $.each(fields, function(name, attributes) {
+                if(name=='id'){
+                   
+                }else{
+
+                     row = '<div class="form-group"><label style="text-transform:capitalize;" for="'+name+'">'+ entity_name+" "+ name+ ' </label><input ';
+                  
+                    $.each(attributes, function(key,value){
+                        
+                         row += ' '+key+'="'+value+'"';
+
+                    });
+                    row += 'class="form-control" name="'+name+'"></div>';
+                    input = $(row);
+
+                    $('#modal_form').append(input);
+                }
+              });
+                submit_button = $('<input type="hidden" name="id"  id="id"><button id="addRecord" type="submit" class="btn btn-primary">Submit</button>');
+                $('#modal_form').append(submit_button);
+                $('.modal-title').html(entity_name+' Details');                
+    } 
+      // Rendring Edit record form
+    function renderUpdateRecordForm(data){
+              var row='';
+              $.each(data, function(name, val) {
+                   $("input[name="+name+"]").val(val);
+                  
+              });
+              $('.errorMsg').remove();
+                               
+    }
+      // function for saving the record
+    function saveRecord(formData,id){
+      
+      if(id >0){
+          callAPI("{{entity}}/"+id+'/',"PUT",formData,renderEntity,errorHandler)
+           var success = '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Record Updated Successfully!</div>';
+       $('.alert-msg').html(success);
+      }else{
+          callAPI("{{entity}}/","POST",formData,renderEntity,errorHandler);
+           var success = '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Record Added Successfully!</div>';
+      $('.alert-msg').html(success);
+          
+      }
+      
+    
+
+    }
+
+    function errorHandler(data){
+        
+        var jsonData = JSON.parse(data.responseText);
+     $.each(jsonData, function(name, val) {
+        $('input[name="'+name+'"]').after('<div class="errorMsg"><b style="color:red">'+val+'</b></div>');
+     });
+     $('.alert-msg').html('');
+    }
+    function renderEntity(){
+       $('#entityAddModal').modal('hide');
+      $('#entityWidgets .col-md-6').fadeOut();
+      $('#entityAddButton .card-body').remove();
+      $('#Entity-Pagination .pagination li').remove();
+      callAPI("{{entity}}/","get",{},renderTiles,errorHandler);
+      
+    }
+
+    function renderAddRecord(){
+      callAPI("{{entity}}/","OPTIONS",{},renderAddRecordForm,errorHandler)
+    }
+    // function for deleting 
+     function deleteRecord(id){
+      callAPI("{{entity}}/"+id,"DELETE",{},renderEntity,errorHandler);
+      var success = '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong> Record Deleted Successfully!</div>'
+      $('.alert-msg').html(success);
+    }
+
+        // function for form submit by Ajax
+     $('#modal_form').submit(function(e) {
+                e.preventDefault(); 
+                var form = $(this); 
+                var id = $('input[name="id"]').val();
+                var formData =form.serialize();
+                
+                saveRecord(formData,id);
+    
+            });
+
+            $(document).on("click",".addmore-{{entity}}",function () {  
+               
+               
+               $('#modal_form').html('');
+                 renderAddRecord();
+                 $('#id').val(0);
+
+            }); 
+             $(document).on("click",".delete",function () { 
+                var id = $(this).attr('id');
+                deleteRecord(id);
+
+            }); 
+            $(document).on("click",".edit",function () { 
+                var id = $(this).attr('id');
+                 callAPI("{{entity}}/"+id+'/',"GET",{},renderUpdateRecordForm,errorHandler)
+
+            });
+            $(document).on("click",".page-link",function () { 
+                var url = $(this).attr('url');
+                 $('#entityWidgets .col-md-6').fadeOut();
+                  $('#entityAddButton .card-body').remove();
+                  $('#Entity-Pagination .pagination li').remove();
+                  callAPI(url,"get",{},renderTiles,errorHandler);
+
+            });
+     });  
+ 
+
+</script>
