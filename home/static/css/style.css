@@ -681,7 +681,7 @@ header {
 }
 
 .top-bar a {
-  color: #838893;
+  color: #454545;
 }
 .top-bar a:hover {
   color: #48a0dc;
@@ -714,18 +714,6 @@ header {
 }
 .navbar-brand img {
   max-width: 100%;
-}
-
-/* MENU TOGGLE */
-.navbar-toggle {
-  background: #e8ebf3;
-  margin: 0;
-  margin-top: 20px;
-  position: relative;
-  z-index: 2;
-}
-.navbar-toggle .icon-bar {
-  background: #838893;
 }
 
 /* MAIN MENU */
