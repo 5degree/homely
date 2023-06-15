@@ -251,6 +251,11 @@ h5 {
   font-size: 16px;
 }
 
+.privacy-policy-content{
+  font-size: 18px;
+    font-weight: 600;
+}
+
 a {
   color: #48a0dc;
   outline: 0 !important;
