@@ -251,6 +251,15 @@ h5 {
   font-weight: 600;
 }
 
+.prop-contact{
+  font-family: 'Open Sans';
+  font-weight: 600;
+}
+
+.whr-to-fnd{
+  font-size: 25px;
+}
+
 a {
   color: #48a0dc;
   outline: 0 !important;
@@ -743,6 +752,7 @@ header {
 }
 .navbar-brand img {
   max-width: 100%;
+  width: 300px;
 }
 
 /* MENU TOGGLE */
