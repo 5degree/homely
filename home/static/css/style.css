@@ -986,12 +986,14 @@ header {
   font-size: 48px;
   font-weight: 700;
   text-align: center;
+  text-shadow: 0px 0 20px #00000054;
 }
 .subheader.simple-search p {
   font-size: 21px;
   margin-top: 15px;
   margin-bottom: 35px;
   text-align: center;
+  text-shadow: 0px 0px 20px black;
 }
 
 .subheader.simple-search .simple-search-form {
