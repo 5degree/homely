@@ -10,24 +10,13 @@
     <![endif]-->
     <!-- Meta -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="TAS : Technology as service. Testing (Load, API, contents, functional), Monitoring (DB, docker, RPA), Automation for any eco system."
-    />
-    <meta
-      name="keywords"
-      content="Testing as service, load, api, functional and layout testing,System insight, RPA, Monitoring Database Docker"
-    />
-    <meta name="author" content="Phoenixcoded" />
+    <meta name="description" content="Unlock the potential of real estate investment with our comprehensive website. Explore lucrative opportunities in residential and commercial properties. Maximize returns and build wealth with expert guidance, market insights, and valuable resources. Start your journey today!">
+    <meta name="keywords" content="real estate investment, property investment, real estate opportunities, residential properties, commercial properties, investment guidance, real estate investment, REIT, REITs, invest in properties, propfrac, Propfrac Managers">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.jpg">
 
-   
-    
-    <!-- fontawesome icon -->
+  <!-- fontawesome icon -->
     <link
       rel="stylesheet"
       href="/static/admin/fonts/fontawesome/css/fontawesome-all.min.css"
@@ -89,9 +78,9 @@
       <div class="navbar-wrapper">
         <div class="navbar-brand header-logo">
           <a href="/" class="b-brand">
-            <img style="margin-left: -10px" src="/static/images/demoLogo.png"/>
+            <img style="margin-left: -10px width: 180px;" alt="Propfrac Logo" src="/static/images/demoLogo.png"/>
           </a>
-          <a class="mobile-menu" id="mobile-collapse" href="/">
+          <a class="mobile-menu" id="mobile-collapse" aria-label="Mobile Menu">
             <span></span>
           </a>
         </div>
@@ -255,7 +244,7 @@
           
           <li>
             <div class="dropdown drp-user">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-label="Settings">
                 <i class="icon feather icon-settings"></i>
               </a>
               <div
@@ -292,9 +281,9 @@
 
     <!-- [ chat user list ] start -->
     <section class="header-user-list">
-      <a href="/" class="h-close-text"><i class="feather icon-x"></i></a>
+      <a href="/" class="h-close-text" aria-label="Close"><i class="feather icon-x"></i></a>
       <ul class="nav nav-tabs" id="chatTab" role="tablist">
-        <li class="nav-item">
+        <li class="nav-item" role="presentation">
           <a
             class="nav-link active text-uppercase"
             id="chat-tab"
@@ -306,7 +295,7 @@
             ><i class="feather icon-message-circle mr-2"></i>Chat</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" role="presentation">
           <a
             class="nav-link text-uppercase"
             id="user-tab"
@@ -318,7 +307,7 @@
             ><i class="feather icon-users mr-2"></i>User</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" role="presentation">
           <a
             class="nav-link text-uppercase"
             id="setting-tab"
@@ -921,6 +910,7 @@
           <button
             type="submit"
             class="input-group-append btn-send btn btn-primary"
+            aria-label="submit"
           >
             <i class="feather icon-message-circle"></i>
           </button>

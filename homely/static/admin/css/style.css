@@ -3322,7 +3322,7 @@ pre[class*="language-"]:before {
 }
 
 .pcoded-navbar .pcoded-menu-caption {
-  color: #8090a5;
+  color: #B2BEC7;
 }
 
 .pcoded-navbar .pcoded-inner-navbar li.active > a,
@@ -9119,7 +9119,7 @@ body.box-layout .pcoded-navbar.theme-horizontal ~ .pcoded-header {
 /* ====== [ Menu background pattern end ] ========== */
 /* ====== [ Menu title color start ] ============== */
 .pcoded-navbar.title-default .pcoded-inner-navbar .pcoded-menu-caption {
-  color: #8090a5;
+  color: #B2BEC7;
 }
 
 .pcoded-navbar.title-blue .pcoded-inner-navbar .pcoded-menu-caption {

@@ -260,6 +260,10 @@ h5 {
   font-size: 25px;
 }
 
+.dashboard-section-heading{
+  font-size: 16px;
+}
+
 a {
   color: #48a0dc;
   outline: 0 !important;
