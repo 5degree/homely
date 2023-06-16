@@ -173,6 +173,10 @@ a.control_next {
   display: none;
 }
 
+.m-menu-cont{
+    display: none;
+  }
+
 @media only screen and (max-device-width: 990px) {
   .m-menu {
   display: flex;
@@ -197,8 +201,13 @@ a.control_next {
   }
 
   .m-menu-cont ul li a{
-    padding:10px;
-    text-decoration:none;
+    width: 100%;
+    padding: 12px 0;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
   }
 
   .m-menu-cont ul li:last-child{
@@ -272,7 +281,7 @@ a.control_next {
       </div>
 
       <a class="navbar-brand" href="/"><img alt="Propfrac Logo" src="/static/images/demoLogo.png"/> </a>
-
+      <div class="m-menu" id="menuIcon"><i class="fa fa-bars"></i></div>
     </div>
 
     <!-- main menu -->
@@ -361,9 +370,8 @@ a.control_next {
 
   </div><!-- end container -->
 
-  <!-- menu for mobile starts -->
-  <div class="m-menu" id="menuIcon"><i class="fa fa-bars"></i></div>
 </header>
+<!-- menu for mobile starts -->
 <div class="m-menu-cont" id="menuContM">
   <ul>
     <li><a href="/property-listing">Properties </a></li>
