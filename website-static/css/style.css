@@ -242,9 +242,14 @@ h5 {
   font-size: 25px;
 }
 
+.contact-body{
+  background-color: #FFFFFF;
+}
+
 .prop-contact{
   font-family: 'Open Sans';
   font-weight: 600;
+  color: #195A8A;
 }
 
 .dashboard-section-heading{
