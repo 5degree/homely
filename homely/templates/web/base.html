@@ -169,6 +169,45 @@ a.control_next {
 .module-header p{
   width: 100%;
 }
+.m-menu {
+  display: none;
+}
+
+@media only screen and (max-device-width: 990px) {
+  .m-menu {
+  display: flex;
+    background-color: rgb(230, 230, 230);
+    color: #6f6f6f;
+    width: fit-content;
+    padding: 12px 18px;
+    margin-top: 20px;
+  }
+  
+  .m-menu-cont{
+    background-color:#323746;
+    padding:20px;
+    color:#FFFFFF;
+    display: none;
+  }
+
+  .m-menu-cont ul li{
+    list-style-type:none;
+    margin-top:5px;
+    border-bottom:1px solid #a5a5a5;
+  }
+
+  .m-menu-cont ul li a{
+    padding:10px;
+    text-decoration:none;
+  }
+
+  .m-menu-cont ul li:last-child{
+    border-bottom:none;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
@@ -233,13 +272,6 @@ a.control_next {
       </div>
 
       <a class="navbar-brand" href="/"><img alt="Propfrac Logo" src="/static/images/demoLogo.png"/> </a>
-
-      <!-- nav toggle -->
-      <button type="button" class="navbar-toggle" aria-label="Menu" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
 
     </div>
 
@@ -328,7 +360,20 @@ a.control_next {
     </div><!-- end navbar collaspe -->
 
   </div><!-- end container -->
+
+  <!-- menu for mobile starts -->
+  <div class="m-menu" id="menuIcon"><i class="fa fa-bars"></i></div>
 </header>
+<div class="m-menu-cont" id="menuContM">
+  <ul>
+    <li><a href="/property-listing">Properties </a></li>
+    <li><a href="/about-us">About Us </a></li>
+    <li><a href="/faq">FAQs</a></li>
+    <li><a href="/contact">Contact Us </a></li>
+    <li><a href="/propertyAdmin/overview">Dashboard </a></li>
+  </ul>
+</div>
+
  {% block container %}  {% endblock %}
 
 <footer id="footer">
@@ -589,6 +634,19 @@ a.control_next {
 
  });    
 
+
+</script>
+
+<script>
+var menuIcon = document.getElementById('menuIcon');
+var menuCont = document.getElementById('menuContM');
+
+menuIcon.addEventListener('click', function() {
+  if (menuCont.style.display === 'none') {
+    menuCont.style.display = 'block';
+  }
+  else {menuCont.style.display = 'none';}
+  });
 
 </script>
 
