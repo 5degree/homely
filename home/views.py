@@ -417,8 +417,11 @@ class AdminMyEarningsView(TemplateView):
         average_irr = (total_irr) / len(context['myEarningBySolds']) if len(context['myEarningBySolds']) else 0 
         
 
-        return_multiple = (sum_of_total_return / total_sale_invested_amount) 
-        
+        #return_multiple = (sum_of_total_return / total_sale_invested_amount) 
+        if total_sale_invested_amount != 0:
+            return_multiple = sum_of_total_return / total_sale_invested_amount
+    	else:
+            return_multiple = 0
 
     
         # For Loop Rent Distribution Graph
