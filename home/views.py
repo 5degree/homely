@@ -420,7 +420,7 @@ class AdminMyEarningsView(TemplateView):
         #return_multiple = (sum_of_total_return / total_sale_invested_amount) 
         if total_sale_invested_amount != 0:
             return_multiple = sum_of_total_return / total_sale_invested_amount
-        else:
+    	else:
             return_multiple = 0
 
     
