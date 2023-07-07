@@ -74,7 +74,7 @@ body {
   padding: 50px 0px 50px 0px;
 }
 .module.no-padding {
-  padding: 50px 0 50px;
+  padding: 70px 0;
 }
 .module.no-padding-top {
   padding-top: 0;
@@ -150,6 +150,8 @@ body {
   margin: 0;
   color: white;
   padding: 5px 0;
+  font-family: 'Raleway';
+  font-weight: 600;
 }
 
 .left {
@@ -268,6 +270,48 @@ h5 {
 .dashboard-section-heading{
   font-size: 16px;
 }
+
+.module.no-padding.cont-2 {
+  background-color: aliceblue;
+}
+
+.cont-2-row{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.cont-2-img-cont{
+  height: 347px;
+  width: 570px;
+}
+
+.cont-5{
+  padding: 100px 0;
+  background: url(../images/knowledge-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.cont-5-row h1{
+  color: aliceblue;
+  text-shadow: 0px 0px 20px #3b3b3b;
+  font-size: 46px;
+  font-weight: 600;
+}
+.cont-5-row p{
+  color: aliceblue;
+  text-shadow: 0px 0px 20px #3b3b3b;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.cont-5-row a{
+  margin-top: 15px;
+}
+
 
 .privacy-policy-content{
   font-size: 18px;
@@ -3428,9 +3472,23 @@ footer .divider {
   .slick-track .testimonial{
     width: 341px!important;
   }
-
+  
   .footer-share-icons img, p {
     margin-right: 5px!important; 
     margin-left: 5px!important;
+  }
+
+  .cont-2-row{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 60px;
+  }
+
 }
+@media only screen and (max-width: 1000px) {
+  .cont-2-img-cont{
+    width: 400px;
+    height: 250px;
+  }
 }
