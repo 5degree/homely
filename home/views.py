@@ -757,9 +757,9 @@ def Login2(request):
                     login(request,user)
                     return HttpResponseRedirect('propertyAdmin/overview')
                 else:
-                    return HttpResponse('Authentication Failed')
+                    return HttpResponse('Authentication Failed, Please Try Again.')
             else:
-                return HttpResponse('Authentication Failed')
+                return HttpResponse('Authentication Failed. Something went wrong.')
     else:
         form = LoginForm()
     return render(request,'web/login.html',{'form':form})

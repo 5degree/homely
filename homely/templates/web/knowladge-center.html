@@ -30,17 +30,17 @@
           {% for article in articles %}
           {% if article.id == 1 %}
           <div class="item active" >
-            <img style="min-height: 500px;" src="{{article.featured_image.url}}" alt="" >
+            <img class="article-carousel-img" src="{{article.featured_image.url}}" alt="" >
             <div class="detail_wrapper">
               
               <p>{{article.article_title}}</p>
-              <span><b>By</b><br>{{article.created_by}}</span> - <span>{{article.created_at}}</span><br>
+              <span>By<br>{{article.created_by}}</span> - <span>{{article.created_at}}</span><br>
               <img class="img-radius img-fluid wid-80 img-circle" style="width: 50px!important;" src="{{article.creater_profile_pic.url}}" alt="User image">
             </div>
           </div>
           {% else %}
           <div class="item" >
-            <img style="min-height: 500px;" src="{{article.featured_image.url}}" alt="" >
+            <img class="article-carousel-img" src="{{article.featured_image.url}}" alt="" >
             <div class="detail_wrapper">
               
               <p>{{article.article_title}}</p>
@@ -92,10 +92,10 @@
           <h6 class="text-center"></h6>
           <div class="panel user-panel user-panel-1">
             <div class="panel-header border-0 p-2 pb-0">
-              <div class="cover-img-block">
-                <a href="article/{{article.id}}" style="text-decoration: none; color: black;">
+              <div class="cover-img-block article-card-img" style="background-image: url({{article.featured_image.url}}); padding: 100px 0; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                <!-- <a href="article/{{article.id}}" style="text-decoration: none; color: black;">
                 <img style="min-width: 550px;max-width: 550px;min-height: 200px;max-height: 200px;" src="{{article.featured_image.url}}" alt="" class="img-fluid">
-                </a>
+                </a> -->
               </div>
               
             </div>
@@ -119,48 +119,29 @@
                   
                 </div>
               </div>
-              <div class="row" >
+              <div>
                 {% if article.tag1 %}
-                <div class="col-md-4">
-                  <div class="property-tag button ">
-                   <span style="font-size: 10px;">{{article.tag1}}</span> 
-                  </div>
-                </div>
+                   <span style="background-color: #e5e5e5; padding: 3px 5px; font-size: 10px; font-family: sans-serif; margin: 4px; border-radius: 3px;">{{article.tag1}}</span>
                 {% endif %}
+
                 {% if article.tag2 %}
-                <div class="col-md-4">
-                  <div class="property-tag button ">
-                    <span style="font-size: 10px;">{{article.tag2}}</span> 
-                  </div>
-                </div>
+                <span style="background-color: #e5e5e5; padding: 3px 5px; font-size: 10px; font-family: sans-serif; margin: 4px; border-radius: 3px;">{{article.tag2}}</span>
                 {% endif %}
+
                 {% if article.tag3 %}
-                <div class="col-md-4">
-                  <div class="property-tag button ">
-                    <span style="font-size: 10px;">{{article.tag3}}</span> 
-                  </div>
-                </div>
+                <span style="background-color: #e5e5e5; padding: 3px 5px; font-size: 10px; font-family: sans-serif; margin: 4px; border-radius: 3px;">{{article.tag3}}</span>
                 {% endif %}
-              </div>
-              <br>
-              <div class="row" style="margin-top: 5px;" >
+
                 {% if article.tag4 %}
-                <div class="col-md-4">
-                  <div class="property-tag button ">
-                   <span style="font-size: 10px;">{{article.tag4}}</span> 
-                  </div>
-                </div>
+                <span style="background-color: #e5e5e5; padding: 3px 5px; font-size: 10px; font-family: sans-serif; margin: 4px; border-radius: 3px;">{{article.tag4}}</span>
                 {% endif %}
+
                 {% if article.tag5 %}
-                <div class="col-md-4">
-                  <div class="property-tag button ">
-                    <span style="font-size: 10px;">{{article.tag5}}</span> 
-                  </div>
-                </div>
+                <span style="background-color: #e5e5e5; padding: 3px 5px; font-size: 10px; font-family: sans-serif; margin: 4px; border-radius: 3px;">{{article.tag5}}</span>
                 {% endif %}
                 
               </div>
-              <br><br>
+              <br>
               <div class="">
                 <a href="article/{{article.id}}" style="text-decoration: none; color: black;">
 
@@ -178,14 +159,14 @@
                   <div class="col-md-6">
                     <a href="article/{{article.id}}" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> Read More</a>
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <div class="blog-share-icon">
                       <p class="title">Share Via</p>
                       <a class="social_share" href="{{article.fb_link}}" target="_blank"><i class="fa fa-facebook"></i></a>
                       <a class="social_share" href="{{article.twitter_link}}" target="_blank"><i class="fa fa-twitter"></i></a>
                       <a class="social_share" href="{{article.linkedin_link}}" target="_blank"><i class="fa fa-linkedin"></i></a>
                     </div>
-                  </div>
+                  </div> -->
                   
                  
                 </div>
@@ -205,12 +186,11 @@
     <div class="container">
     
    
-      <div class="row " style="background-color: #212529;">
-        <div class="col-md-6">
+      <div class="row " style="background-color: #212529; background-image: url(/static/images/footer_signup_img.svg); padding: 50px 0px; background-repeat: no-repeat;">
+        <!-- <div class="col-md-6">
           <img class="" src="/static/images/footer_signup_img.svg" alt="">
-        </div>
-        <div class="col-md-6">
-          <br><br>
+        </div> -->
+        <div class="col-md-6" style="text-align: center; text-shadow: 0px 0px 20px #000000c2; width: 100%;">
          <h3 style="color:#FFF">Real Estate Investing Simplified</h3> <a class="btn btn-primary text-center"  href="/register">Become an Investor</a>
         </div>
         
@@ -226,16 +206,40 @@
       width: 100%!important;
     }
     .detail_wrapper{
-      left: 25%;
+      left: 15%;
       top: 25%;
       color: #fff;
     position: absolute;
     text-align: center;
    
-    width: 50%;
+    width: 70%;
     }
     .detail_wrapper p{
-      font-size: 30px;
+      font-size: 25px;
+      font-weight: 600;
+      text-shadow: 0px 0px 20px #fdfdfd54;
+    }
+
+    .detail_wrapper .img-radius{
+      box-shadow: 0px 0px 20px #ffffff3b;
+    }
+
+    .article-carousel-img{
+      min-height: 400px;
+      filter: brightness(0.5);
+    }
+    @media only screen and (max-width: 700px) {
+      .detail_wrapper p{
+        font-size: 20px;
+      }
+    }
+    @media only screen and (max-width: 500px) {
+      .detail_wrapper p{
+        font-size: 18px;
+      }
+      .article-carousel-img{
+        min-height: 350px;
+      }
     }
   </style>
     
