@@ -127,7 +127,7 @@
             <a href="property-single/{{property.id}}" class="property-img">
               <div class="img-fade"></div>
               <!-- <div class="property-tag button alt featured">Featured</div> -->
-              {% if property.tags == 'FULLY FUNDED'|property.funding_status_percent > 99 %}
+              {% if  property.funding_status_percent == 100 %}
               <div class="property-tag button status" style=" background-color: #ff5a5a40; padding: 7px 15px; border: 2px solid #ff0000;">DEAL CLOSED</div>
               {% else %}
               <div class="property-tag button status">{{property.tags}}</div>
