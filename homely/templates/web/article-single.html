@@ -36,7 +36,7 @@
           </div>
 
           <h3 class="mb-1 mt-3 text-center"> {{article.article_title}}</h3><br>
-          <div class="col-md-12 article-detail">
+          <div class="col-md-12 article-detail" style="font-size: 20px; font-family: 'Open Sans'; color: #000000; letter-spacing: 1px;">
 
             {{article.description|safe}}
 
@@ -69,7 +69,7 @@
     <div class="container">
   
       <div class="module-header">
-        <h2>Why Knowladge <strong>Center</strong></h2>
+        <h2>Why <strong>Knowladge Center</strong></h2>
         <img src="images/divider.png" alt="">
         <p>A proptech platform that provides users with to institutional quality commercial real estate Investment Options</p>
       </div>
@@ -81,10 +81,10 @@
           <h6 class="text-center"></h6>
           <div class="panel user-panel user-panel-1">
             <div class="panel-header border-0 p-2 pb-0">
-              <div class="cover-img-block">
-                <a href="article/{{re_article.id}}" style="text-decoration: none; color: black;">
-                <img style="min-width: 356px;max-width: 356px;min-height: 200px;max-height: 200px;" src="{{re_article.featured_image.url}}" alt="" class="img-fluid">
-                </a>
+              <div class="cover-img-block article-card-img" style="background-image: url({{re_article.featured_image.url}}); padding: 100px 0; background-position: center; background-size: cover; background-repeat: no-repeat;">
+                <!-- <a href="article/{{article.id}}" style="text-decoration: none; color: black;">
+                <img style="min-width: 550px;max-width: 550px;min-height: 200px;max-height: 200px;" src="{{article.featured_image.url}}" alt="" class="img-fluid">
+                </a> -->
               </div>
               
             </div>
@@ -132,11 +132,11 @@
               </div>
               <br><br>
               <div class="">
-                <a href="article/{{re_article.id}}" style="text-decoration: none; color: black;">
+                <a href="https://propfrac.com/article/{{re_article.id}}" style="text-decoration: none; color: black;">
 
                   
-                  <h5 class="mb-3 "  style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical;">{{article.article_title}}</h5>
-                  <div class="mb-1" style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 3;  -webkit-box-orient: vertical;">{{article.description|safe}}</div>
+                  <h5 class="mb-3 "  style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical;">{{re_article.article_title}}</h5>
+                  <div class="mb-1" style=" overflow: hidden; text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 3;  -webkit-box-orient: vertical;">{{re_article.description|safe}}</div>
                 </a>
                
                
@@ -146,7 +146,7 @@
                
                 <div class="col">
                   <div class="col-md-6">
-                    <a href="article/{{re_article.id}}" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> Read More</a>
+                    <a href="https://propfrac.com/article/{re_article.id}}" class="button button-icon more-properties-btn"><i class="fa fa-angle-right"></i> Read More</a>
                   </div>
                   <!-- <div class="col-md-6">
                     <div class="blog-share-icon">
@@ -177,7 +177,7 @@
         background: #787c8a url({{article.featured_image.url}}) no-repeat center;
         }
     .fa{
-        font-size: 35px;
+        font-size: 14px;
     }
 </style>
   

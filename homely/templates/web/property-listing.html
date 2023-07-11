@@ -106,8 +106,12 @@
           <div class="property shadow-hover">
             <a href="/property-single/{{property.id}}" class="property-img">
               <div class="img-fade"></div>
-              <div class="property-tag button alt featured">Featured</div>
+              <!-- <div class="property-tag button alt featured">Featured</div> -->
+              {% if property.tags == 'FULLY FUNDED' or  property.funding_status_percent|add:0 == 100 %}
+              <div class="property-tag button status alt featured" style=" background-color: #ff5a5a40; padding: 7px 15px; border: 2px solid #ff0000;">DEAL CLOSED</div>
+              {% else %}
               <div class="property-tag button status">{{property.tags}}</div>
+              {% endif %}
               <div class="property-price">₹{{property.price}}</div>
               <div class="property-color-bar"></div>
               {% if property.featured_image %}
@@ -119,7 +123,7 @@
             </a>
             <div class="property-content">
               <div class="property-title">
-              <h4><a href="#">{{property.name}}</a></h4>
+              <h4>{{property.name}}</h4>
                 <p style="height: 35px;" class="property-address"><i class="fa fa-map-marker icon"></i>{{property.address}}</p>
               </div>
               <table class="property-details" style="margin-left: 15%;">

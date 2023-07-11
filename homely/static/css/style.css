@@ -56,7 +56,7 @@ html {
 }
 
 body {
-  font-family: "Raleway", Arial;
+  font-family: "Roboto", Arial;
   font-weight: 300;
   font-size: 15px;
   color: #464646;
@@ -150,7 +150,7 @@ body {
   margin: 0;
   color: white;
   padding: 5px 0;
-  font-family: 'Raleway';
+  font-family: 'Roboto';
   font-weight: 600;
 }
 
@@ -211,7 +211,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", Helvetica;
+  font-family: "Roboto", Helvetica;
   color: #3a464e;
 }
 h1 {
@@ -352,7 +352,7 @@ a:hover {
 /* BUTTONS */
 .button,
 input[type="submit"] {
-  font-family: "Raleway", Helvetica, Arial;
+  font-family: "Roboto", Helvetica, Arial;
   font-size: 15px;
   font-weight: 600;
   padding: 10px 35px 10px 35px;
@@ -460,7 +460,7 @@ select {
   border-radius: 3px;
   border: none;
   font-weight: 300;
-  font-family: "Raleway" !important;
+  font-family: "Roboto" !important;
   background: white;
   border: lightgray 1px solid;
 }
@@ -667,7 +667,7 @@ textarea.border,
 .tabs {
   margin-bottom: 20px;
   display: none;
-  font-family: "Raleway";
+  font-family: "Roboto";
 }
 .tabs.ui-widget.ui-widget-content,
 .ui-tabs .ui-tabs-nav {
@@ -729,7 +729,7 @@ textarea.border,
 .ui-accordion .ui-accordion-content {
   border: none;
   padding: 30px;
-  font-family: "Raleway";
+  font-family: "Roboto";
 }
 .ui-accordion-header-icon {
   display: none;
@@ -1599,7 +1599,7 @@ header {
 .property-img img {
   max-width: 100%;
   height: auto;
-  width: 655px !important;
+  width: 100% !important;
   height: 320px !important;
 }
 
@@ -1696,6 +1696,7 @@ header {
 
 .property-title .fa {
   color: #48a0dc;
+  margin-right: 10px;
 }
 
 .property-details {
