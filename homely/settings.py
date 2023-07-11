@@ -136,10 +136,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_USER = 'invest@propfrac.com'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = ''
+DEFAULT_FROM_EMAIL = 'invest@propfrac.com'
 
 LANGUAGE_CODE = 'en-us'
 
