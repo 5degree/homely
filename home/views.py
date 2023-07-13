@@ -787,6 +787,7 @@ def Register(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
+            #phone = form.cleaned_data('phone')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             subject = "New registration" 
