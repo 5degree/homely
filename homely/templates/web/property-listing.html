@@ -153,18 +153,18 @@
                 
               </tbody></table>
               <hr>
+            {% if property.tags == 'FULLY FUNDED' or  property.funding_status_percent|add:0 == 100 %}
+            <div class="form-block text-center" >
+             <a href="/property-single/{{property.id}}"><button class="button primary"  style="width: 100%;">View Opportunity</button></a>
+            </div>
+        
+          {% endif %}
               {% if property.tags == 'New' %}
               <div class="form-block text-center" >
                <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">Invest Now</button></a>
               </div>
          
             {% endif %}
-            {% if property.tags == 'FULLY FUNDED' %}
-            <div class="form-block text-center" >
-             <a href="/property-single/{{property.id}}"><button class="button primary"  style="width: 100%;">View Opportunity</button></a>
-            </div>
-        
-          {% endif %}
           {% if property.tags == 'RESALE' %}
             <div class="form-block text-center" >
              <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">View Opportunity</button></a>
