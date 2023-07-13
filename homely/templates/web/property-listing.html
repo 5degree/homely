@@ -158,18 +158,13 @@
              <a href="/property-single/{{property.id}}"><button class="button primary"  style="width: 100%;">View Opportunity</button></a>
             </div>
         
-          {% endif %}
-              {% if property.tags == 'New' %}
-              <div class="form-block text-center" >
-               <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">Invest Now</button></a>
-              </div>
+
          
-            {% endif %}
-          {% if property.tags == 'RESALE' %}
+          {% else %}
             <div class="form-block text-center" >
-             <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">View Opportunity</button></a>
+             <a  href="/property-single/{{property.id}}"><button class="button green"  style="width: 100%;">Invest Now</button></a>
             </div>
-          
+
           {% endif %}
           </div>
             <!-- <div class="property-footer">
