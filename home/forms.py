@@ -2,20 +2,22 @@ from django import forms
 from home.models import Property,User,Profile,individualKyc,CompanyKyc,CallSchedule
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from home.models import CustomUser
 
 class SignUpForm(UserCreationForm):
     #country =  forms.CharField(widget=forms.HiddenInput())
-   
+    phone = forms.CharField(max_length=12)
   
 
     class Meta:
-        model = User
+        model = CustomUser
        
-        fields = ( 'username','email', 'password1', 'password2', )
+        fields = ( 'username','email', 'phone', 'password1', 'password2', )
     
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
         #user.country = self.cleaned_data["country"]
+        user.phone = self.cleaned_data['phone']
         if commit:
             user.save()
         return user

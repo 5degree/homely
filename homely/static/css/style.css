@@ -3478,6 +3478,9 @@ footer .divider {
   .slick-track .testimonial{
     width: 341px!important;
   }
+  .navbar-brand img {
+    width: 290px;
+  }
   
   .footer-share-icons img, p {
     margin-right: 5px!important; 

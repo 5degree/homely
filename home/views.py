@@ -25,6 +25,8 @@ from django.template.loader import get_template
 from django.template import Context 
 import random
 
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 
 # Create your views here.
 
@@ -787,7 +789,6 @@ def Register(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            #phone = form.cleaned_data('phone')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             subject = "New registration" 

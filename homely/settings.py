@@ -70,6 +70,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'homely.wsgi.application'
 
+AUTH_USER_MODEL = 'home.CustomUser'
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
 # Social Logins
 
 AUTHENTICATION_BACKENDS = (
@@ -90,19 +93,19 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'homely_new',
-        'USER': 'admin', # for live 'admin' and for local 'root'
-        'PASSWORD': 'BYRY[ZT/!!BFtv2*', #for live 'admin' and for local ''
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'homely_new',
+#         'USER': 'admin', # for live 'admin' and for local 'root'
+#         'PASSWORD': 'BYRY[ZT/!!BFtv2*', #for live 'admin' and for local ''
+#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+#         'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

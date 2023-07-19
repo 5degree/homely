@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url, include
 from django.contrib.auth.decorators import login_required
@@ -52,7 +52,7 @@ urlpatterns = [
     
     path('login',Login2,name='login'),
     path('logout',Logout,name='logout'),
-    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+    re_path(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
     path('Investors-register',Registeration_agreement,name='Investors-register'),
     #path('Investors-register-get/$',Registeration_agreement_get,name='Investors-register-get'),
     # path('register/(?P<country>\d+)/$',Register,name='register'),
@@ -65,9 +65,9 @@ urlpatterns = [
     path("password-reset-complete/", auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name="password_reset_complete"),
 
  
-    url(r'^property-listing/$',property_listing,name='property-listing'),
-    url(r'^contact',contact,name='contact'),
-    url(r'^property-invest/(?P<prop_id>\d+)/',login_required(property_invest),name='property_invest'),
+    re_path(r'^property-listing/$',property_listing,name='property-listing'),
+    re_path(r'^contact',contact,name='contact'),
+    re_path(r'^property-invest/(?P<prop_id>\d+)/',login_required(property_invest),name='property_invest'),
 
     path('property-single/<int:id>',login_required(PropertySingleView.as_view()),name='property-single'),
     

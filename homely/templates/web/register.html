@@ -42,6 +42,14 @@
                 <small style="color: grey">{{ form.email.help_text }}</small>
           {% endif %}<br>
           <small style="color: red">{{ form.email.errors }}</small>
+
+          {{ form.phone.label_tag }}
+          {{ form.phone }}
+          {% if form.phone.help_text %}
+                <small style="color: grey">{{ form.phone.help_text }}</small>
+          {% endif %}<br>
+          <small style="color: red">{{ form.phone.errors }}</small>
+
           {{ form.password1.label_tag }}
           {{ form.password1 }}
           {% if form.password1.help_text %}

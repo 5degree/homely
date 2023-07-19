@@ -108,7 +108,7 @@
               <div class="img-fade"></div>
               <!-- <div class="property-tag button alt featured">Featured</div> -->
               {% if property.tags == 'FULLY FUNDED' or  property.funding_status_percent|add:0 == 100 %}
-              <div class="property-tag button status alt featured" style=" background-color: #ff5a5a40; padding: 7px 15px; border: 2px solid #ff0000;">DEAL CLOSED</div>
+              <div class="property-tag button status alt featured" style="background-color: #d82727;padding: 7px 15px;border: 2px solid #ff0000;font-family: 'Open Sans';font-weight: 500;letter-spacing: 0.5px;">DEAL CLOSED</div>
               {% else %}
               <div class="property-tag button status">{{property.tags}}</div>
               {% endif %}

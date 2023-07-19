@@ -5,12 +5,17 @@ from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 
 from django.core.mail import send_mail
-
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 
 # class User(AbstractUser):
 #     country = models.CharField(max_length=100, null=True, default=None)
+
+class CustomUser(AbstractUser):
+    phone = models.CharField(max_length=20, blank = False)
+
 COUNTRIES = (
     ('AD',('Andorra')),
     ('AE',('United Arab Emirates')),
