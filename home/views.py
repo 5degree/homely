@@ -35,6 +35,7 @@ from django.views.generic import TemplateView
 
 class IndexView(TemplateView):
     template_name = "web/index.html"
+    send_mail('Test mail from PF', 'This mail is sent from Propfrac Server by Nitesh for testing if mail smtp is working or not.',  'propfracmanagers@gmail.com', ['nitesh@5degree.in'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -795,7 +796,7 @@ def Register(request):
             body = {"Welcome! You have successfully Registered!"}
             message = "\n".join(body)
             try:
-                send_mail(subject, message,  'invest@propfrac.com', [form.cleaned_data['email']], fail_silently=True)
+                send_mail(subject, message,  'propfracmanagers@gmail.com', [form.cleaned_data['email']], fail_silently=True)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 				
