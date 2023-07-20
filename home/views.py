@@ -35,7 +35,6 @@ from django.views.generic import TemplateView
 
 class IndexView(TemplateView):
     template_name = "web/index.html"
-    send_mail('Test mail from PF', 'This mail is sent from Propfrac Server by Nitesh for testing if mail smtp is working or not.',  'propfracmanagers@gmail.com', ['nitesh@5degree.in'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
