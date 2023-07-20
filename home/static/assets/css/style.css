@@ -416,6 +416,9 @@ p.text-muted {
     .container {
         max-width: 100%;
     }
+    .col-6-deal-cont{
+        margin-bottom: 30px;
+    }
 }
 
 /* ========================================================

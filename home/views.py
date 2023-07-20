@@ -121,7 +121,7 @@ def property_invest(request,prop_id):
             message = "Your call is Scheduled on : "+ str(form.cleaned_data['schedule_date']) +" We Will Contact you! Thanks for showing your Interest"
             
             try:
-                send_mail(subject, message, 'invest@propfrac.com', [request.user.email], fail_silently=True)
+                send_mail(subject, message, 'propfracmanagers@gmail.com', [request.user.email], fail_silently=True)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
@@ -150,7 +150,7 @@ def contact(request):
 			message = "\n".join(body.values())
 
 			try:
-				send_mail(subject, message, 'invest@propfrac.com', ['invest@propfrac.com'], fail_silently=True) 
+				send_mail(subject, message, 'propfracmanagers@gmail.com', ['invest@propfrac.com'], fail_silently=True) 
 			except BadHeaderError:
 				return HttpResponse('Invalid header found.')
 			return redirect ("/")
@@ -795,7 +795,7 @@ def Register(request):
             body = {"Welcome! You have successfully Registered!"}
             message = "\n".join(body)
             try:
-                send_mail(subject, message,  'invest@propfrac.com', [form.cleaned_data['email']], fail_silently=True)
+                send_mail(subject, message,  'propfracmanagers@gmail.com', [form.cleaned_data['email']], fail_silently=True)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 				

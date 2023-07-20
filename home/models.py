@@ -370,7 +370,7 @@ def send_new_officer_notification_email(sender, instance, created, **kwargs):
         send_mail(
             subject,
             message,
-            'invest@propfrac.com',
+            'propfracmanagers@gmail.com',
             ['invest@propfrac.com', 'jal39@mailinator.com'],
             fail_silently=True,
         )

@@ -3471,7 +3471,6 @@ footer .divider {
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  width: 70%;
   margin: auto;
 }
 @media only screen and (max-width: 600px) {
@@ -3499,5 +3498,29 @@ footer .divider {
   .cont-2-img-cont img{
     width: 400px;
     height: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-6-deal-cont{
+      margin-top: 30px;
+  }
+}
+
+@media only screen and (max-screen: 400px){
+  .cont-2-row{
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .cont-2-img-cont{
+    padding: 0 20px;
+  }
+  .cont-2-img-cont img {
+    width: 310px;
+    height: 200px;
+  }
+  .col-lg-6 h1{
+    font-size: 32px;
   }
 }
