@@ -88,24 +88,17 @@ AUTHENTICATION_BACKENDS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'prop',
+        'USER': 'admin', # for live 'admin' and for local 'root'
+        'PASSWORD': 'BYRY[ZT/!!BFtv2*', #for live 'admin' and for local ''
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'prop',
-#        'USER': 'admin', # for live 'admin' and for local 'root'
-#        'PASSWORD': 'BYRY[ZT/!!BFtv2*', #for live 'admin' and for local ''
-#        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#        'PORT': '3306',
-#        'OPTIONS': {
-#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#        },
-#    }
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -137,12 +130,12 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '386901920531-dqpg4323514rpm458ptkgqolcdor9b7e.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 25
 EMAIL_HOST_USER = 'propfracmanagers@gmail.com'
 EMAIL_HOST_PASSWORD = 'rzkkqvrgjrxwkskq'
 #EMAIL_HOST_PASSWORD = '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'
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 #DEFAULT_FROM_EMAIL = 'invest@propfrac.com'
 
 LANGUAGE_CODE = 'en-us'

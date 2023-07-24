@@ -797,7 +797,9 @@ def Register(request):
             try:
                 send_mail(subject, message,  'propfracmanagers@gmail.com', [form.cleaned_data['email']], fail_silently=True)
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+                return HttpResponse('Invalid header found.' + str(e))
+            except Exception as e:
+                return HttpResponse('Error sending email: ' + str(e))
 				
             return HttpResponseRedirect('/propertyAdmin/overview')
     else:
