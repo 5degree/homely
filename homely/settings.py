@@ -17,7 +17,7 @@ SECRET_KEY = 'yk_)zc-9nbyg2ppcs)v^il4nl8q2fsstidjyv61ysv$%^2ui5@'
 # SECURITY WARNING: don't run with debug turned on in production!!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.propfrac.com','propfrac.com','3.15.33.110','54.243.184.154','localhost', '127.0.0.1','3.16.41.82', 'propfraction.com','54.160.185.74']
+ALLOWED_HOSTS = ['vercel.app','www.propfrac.com','propfrac.com','3.15.33.110','54.243.184.154','localhost', '127.0.0.1','3.16.41.82', 'propfraction.com','54.160.185.74']
 
 
 # Application definition
